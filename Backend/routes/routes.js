@@ -13,7 +13,7 @@ const mongoose = require('../database/mongo.js');
  */
 router.get('/login', viwes.login);
 router.get('/secondFactor', viwes.secondFactor);
-
+router.get('/home/:role', viwes.home);
 
 
 //api routes
