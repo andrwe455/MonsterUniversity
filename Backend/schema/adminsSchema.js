@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 const adminsSchema = new mongoose.Schema({
     jobTitle:{
         type: String,
-        required: true
+        required: true,
+        default: 'hola'
     },
     Status:{
         type: String,
-        required: true
+        required: true,
+        default: 'active'
     }
 });
 
