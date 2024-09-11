@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'SF Collegiate Solid';
+    src: url('../Fonts/SF_Collegiate_Solid.ttf') format('truetype');
+}
+
+body {
+    font-family: 'SF Collegiate Solid', sans-serif;
+}
+
+
+
