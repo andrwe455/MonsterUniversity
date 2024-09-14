@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'SF Collegiate Solid';
+    src: url('../Fonts/SF_Collegiate_Solid.ttf') format('truetype');
+}
+
+body {
+    font-family: 'SF Collegiate Solid', sans-serif;
+}
+
+.notification-text {
+    display: inline-block;
+    max-width: 60%; /* Set the desired width */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.notification-text::after {
+    content: attr(data-tooltip); /* Fetch text dynamically from data attribute */
+    position: absolute;
+    background-color: #333; /* Tooltip background color */
+    color: #fff; /* Text color */
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevents text from wrapping */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Tooltip should not interfere with mouse events */
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    
+    /* Positioning */
+    bottom: 100%; /* Position tooltip above the element */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+}
+
+/* Create the triangle (tail) pointing down to the element */
+.notification-text::before {
+    content: '';
+    position: absolute;
+    bottom: 93%; /* Position the triangle right below the tooltip */
+    left: 47%;
+    rotate: 180deg;
+    transform: translateX(-50%);
+    border-width: 8px; /* Size of the triangle */
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; /* Triangle with the same color as the tooltip */
+    opacity: 0; /* Hide it initially */
+    transition: opacity 0.2s ease;
+}
+
+.notification-text:hover::after,
+.notification-text:hover::before {
+    opacity: 1; /* Show the tooltip and triangle on hover */
+    transform: translateX(-50%) translateY(-10%); /* Move tooltip and tail into place */
+}
+
+
+
+
