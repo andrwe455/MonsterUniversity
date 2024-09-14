@@ -27,13 +27,7 @@ async function login(req,res,next) {
 
 async function setTeacher(req,res) {
     
-    const newTeacher = new usersSchema({
-        id: req.body.id,
-        Name: req.body.Name,
-        LastName: req.body.LastName,
-        Email: req.body.Email,
-        role: req.body.role
-    });
+    const newTeacher = new usersSchema(req.body);
     
     await newTeacher.save();
     res.json(newTeacher);
