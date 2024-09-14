@@ -10,11 +10,13 @@ const semesterSchema = new mongose.Schema({
 });
 
 const teacherSchema = new mongose.Schema({
-    id: Number,
-    name: String,
-    email: String,
-    status: String,
+
+    status: {
+        type: String,
+        required: true,
+        default: 'Activo'
+    },
     test:[semesterSchema]
 });
 
-module.exports = mongose.model('teacher', teacherSchema, 'teacher');
+module.exports =teacherSchema;

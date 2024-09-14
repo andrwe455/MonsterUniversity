@@ -1,8 +1,40 @@
-const teacher = require('../schema/teachersSchema.js');
+const usersSchema = require('../schema/usersSchema');
+const  {auth, signIn} = require('../database/firebase');
+const views = require('./views');
+
+
+async function login(req,res,next) {
+
+    const {email, password} = req.body;
+    
+    try {
+        signIn(auth,email,password).then((user) => {
+            usersSchema.findOne({Email: email}).then((user) => {
+                
+                res.redirect('/home/'+user.role);             
+            }).catch((error) => {
+                res.json(error);
+            });
+        }).catch((error) => {
+            res.json(error);
+        });
+        
+    }catch(error){
+        console.log(error);
+    }
+
+}
 
 async function setTeacher(req,res) {
     
-    const newTeacher = new teacher(req.body);
+    const newTeacher = new usersSchema({
+        id: req.body.id,
+        Name: req.body.Name,
+        LastName: req.body.LastName,
+        Email: req.body.Email,
+        role: req.body.role
+    });
+    
     await newTeacher.save();
     res.json(newTeacher);
 }
@@ -10,7 +42,7 @@ async function setTeacher(req,res) {
 async function teacherScore(req,res) {
 
     const {id} = req.params;
-    const teacherScore = await teacher.findOne({id: id});
+    const teacherScore = await usersSchema.findOne({id: id});
     
     let existinSemester = teacherScore.test.find(semester => semester.Semester === req.body.idsemester);
 
@@ -32,6 +64,7 @@ async function teacherScore(req,res) {
 }
 
 module.exports = {
+    login,
     setTeacher,
     teacherScore
 };
