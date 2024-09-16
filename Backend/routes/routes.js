@@ -14,9 +14,15 @@ const mongoose = require('../database/mongo.js');
 router.get('/login', viwes.login);
 router.get('/secondFactor', viwes.secondFactor);
 router.get('/home/:role', viwes.home);
+//admin routes
+router.get('/home/admin/createSubject', viwes.createSubject);
+
 
 
 //api routes
+
+router.get('/logout', controller.Logout);
+
 router.post('/login', controller.login);
 router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);

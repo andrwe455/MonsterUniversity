@@ -1,5 +1,5 @@
 const usersSchema = require('../schema/usersSchema');
-const  {auth, signIn} = require('../database/firebase');
+const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
 
@@ -57,8 +57,21 @@ async function teacherScore(req,res) {
     res.json(teacherScore);
 }
 
+
+async function Logout(req,res) {
+    try {
+        logout(auth);
+        res.redirect('/');
+    } catch (error) {
+        // An error happened.
+        console.log('error', error);
+        res.status(500).json('Error during logout');
+    }
+    
+}
 module.exports = {
     login,
     setTeacher,
-    teacherScore
+    teacherScore,
+    Logout
 };

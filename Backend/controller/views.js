@@ -27,8 +27,14 @@ function home (req, res) {
     }
 }
 
+function createSubject (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboarCreateSubject.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
-    home
+    home,
+    createSubject
 }
