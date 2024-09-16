@@ -1,135 +1,30 @@
- .promos{
-    background: url('../img/banner/top/header-promotion.jpg');
-    background-position: center;
-    background-size: cover;
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .image-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/logo.png'); 
+    background-size: 50%;
     background-repeat: no-repeat;
-    height: 11rem;
-}
-
-/* .fixed-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000; 
-} */
-
-.navbar-nav .nav-link {
-    font-size: 1.5em;
-}
-
-/* .dropdown-menu a.dropdown-item {
-    font-size: 1.1em; 
-} */
-.badge{
-    font-size: 0.6em; 
-    background-color: black;
-    color: white;
-    border-radius: 100%;
-}
-/*
-.dashPpal img {
-    height:25rem; 
-    object-fit: cover;
-}
-.content-header{
-    padding-top: 0.5rem;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.small-box h3{
-    font-size: 0.3rem;
-}
-.small-box .icon {
-    color: #f39d1252;
-    font-size: 1rem;
-}
-*/
-.card1{
-    background: url('../img/banner/default/1.jpg');
-    height: 12rem;
-}
-.card2{
-    background: url('../img/banner/default/2.jpg');
-    height: 12rem;
-}
-
-
-.carousel-indicators li{
-    color: black;
-    background-color: black;
-}
-.carousel-control-prev,
-.carousel-control-next {
-    align-self: center;
-    color: black;
-}
-.carousel-control-custom-icon{
-    color: black;
-}
- .carousel-control-next, .carousel-control-prev  {
-    width: 100%;
-    top: 100%;
-    bottom: 0;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: start ;
-}
-
-
-
-.container-expand{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 1rem;
-}
-/*
-.bsts img{
-    height: 4em;
-}
-.bsts p{
-    font-size: 0.7em;
-}
-.bsts a{
-    font-size: 1em;
-}
-*/
-.category{
-    border: 1px solid black;
-    background-color: white;
-    align-content: center;
-    text-align: center;
-}
-/*
-.category img{
-    height: 10rem;
-    object-fit: cover;
-}
-
-.carruselVert img {
-    height: 37.6rem;
-    object-fit: cover;
-}
-
-*/
-.dropdown-item{
-    white-space: normal;
-}
-/*
-.add-to{
-    margin-right: 0.5%;
-}
-.add-to i{
-    margin: 0.5%;
-}
-
-*/
-
-@media (max-width: 991px) {
-    .product-image-thumbs{
-        flex-direction: column;
-    }
-}
-
+    background-position: center;
+    opacity: 0.5; 
+    z-index: -1; 
+  }
+  
+  .content-header {
+    position: relative;
+    z-index: 1; 
+  }
+  
+  .dark-text {
+    color: #000000; 
+  }
+  
+  .dark-text-p {
+    color: #000000; /
+  }
+  

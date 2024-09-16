@@ -1,8 +1,34 @@
-const teacher = require('../schema/teachersSchema.js');
+const usersSchema = require('../schema/usersSchema');
+const  {auth, signIn,logout} = require('../database/firebase');
+const views = require('./views');
+
+
+async function login(req,res,next) {
+
+    const {email, password} = req.body;
+    
+    try {
+        signIn(auth,email,password).then((user) => {
+            usersSchema.findOne({Email: email}).then((user) => {
+                
+                res.redirect('/home/'+user.role);             
+            }).catch((error) => {
+                res.json(error);
+            });
+        }).catch((error) => {
+            res.json(error);
+        });
+        
+    }catch(error){
+        console.log(error);
+    }
+
+}
 
 async function setTeacher(req,res) {
     
-    const newTeacher = new teacher(req.body);
+    const newTeacher = new usersSchema(req.body);
+    
     await newTeacher.save();
     res.json(newTeacher);
 }
@@ -10,7 +36,7 @@ async function setTeacher(req,res) {
 async function teacherScore(req,res) {
 
     const {id} = req.params;
-    const teacherScore = await teacher.findOne({id: id});
+    const teacherScore = await usersSchema.findOne({id: id});
     
     let existinSemester = teacherScore.test.find(semester => semester.Semester === req.body.idsemester);
 
@@ -31,7 +57,21 @@ async function teacherScore(req,res) {
     res.json(teacherScore);
 }
 
+
+async function Logout(req,res) {
+    try {
+        logout(auth);
+        res.redirect('/');
+    } catch (error) {
+        // An error happened.
+        console.log('error', error);
+        res.status(500).json('Error during logout');
+    }
+    
+}
 module.exports = {
+    login,
     setTeacher,
-    teacherScore
+    teacherScore,
+    Logout
 };
