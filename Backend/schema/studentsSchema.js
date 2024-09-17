@@ -16,7 +16,8 @@ const studentSchema = new mongose.Schema({
     },
     Status:{
         type: String,
-        required: true
+        required: true,
+        default: 'Activo'
     }
 });
 
