@@ -1,21 +1,68 @@
- // Show the input modal when the button is clicked
- document.getElementById("showInputBtn").addEventListener("click", function() {
+document.getElementById("showInputBtn").addEventListener("click", function() {
     document.getElementById("inputModal").style.display = "flex";
 });
 
-// Close the modal when the close button (X) is clicked
 document.getElementById("closeModal").addEventListener("click", function() {
     document.getElementById("inputModal").style.display = "none";
 });
 
-// Close the modal when confirm button is clicked (you can add logic to handle the input value)
-document.getElementById("confirmBtn").addEventListener("click", function() {
+function deleteElement(element) {
+    var listItem = element.closest("li");
+    var list = listItem.parentElement; 
+    
+    if (listItem) {
+        listItem.remove(); 
+    }
+
+    var remainingItems = list.getElementsByTagName("li").length;
+
+    if (remainingItems === 0) {
+        document.getElementById("toDoPlaceholder").style.display = "flex";
+    } 
+}
+
+function addItem(){
     var inputValue = document.getElementById("inputField").value;
-    alert("Item added: " + inputValue);  // Handle the input value as needed
-    document.getElementById("inputModal").style.display = "none"; // Hide the modal
+
+    if (inputValue === '') {
+        alert("You must write something!");
+    } else {
+
+        var li = document.createElement("li");
+        document.getElementById("toDoPlaceholder").style.display = "none";
+
+        li.innerHTML = `
+            <span class="handle">
+              <i class="fas fa-ellipsis-v"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+            <div class="icheck-primary d-inline ml-2">
+              <input type="checkbox" value="" name="todo${Date.now()}" id="todoCheck${Date.now()}">
+              <label for="todoCheck${Date.now()}"></label>
+            </div>
+            <span class="text">${inputValue}</span>
+            <div class="tools">
+              <i class="fas fa-trash" onclick="deleteElement(this)"></i>
+            </div>
+        `;
+
+        document.getElementById("listUL").appendChild(li);
+        document.getElementById("inputModal").style.display = "none";
+    }
+
+    document.getElementById("inputField").value = "";
+}
+
+document.getElementById("confirmBtn").addEventListener("click", function() {
+    addItem();
 });
 
-// Optional: close modal by clicking outside of the input box
+document.getElementById("inputField").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {  
+        addItem(); 
+    }
+});
+
 window.addEventListener("click", function(event) {
     if (event.target == document.getElementById("inputModal")) {
         document.getElementById("inputModal").style.display = "none";
