@@ -21,7 +21,7 @@ body {
 
 .notification-text {
     display: inline-block;
-    max-width: 60%; /* Set the desired width */
+    max-width: 60%; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -29,60 +29,56 @@ body {
 }
 
 .notification-text::after {
-    content: attr(data-tooltip); /* Fetch text dynamically from data attribute */
+    content: attr(data-tooltip); 
     position: absolute;
-    background-color: #333; /* Tooltip background color */
-    color: #fff; /* Text color */
+    background-color: #333; 
+    color: #fff;
     padding: 5px;
     border-radius: 4px;
     font-size: 12px;
-    white-space: nowrap; /* Prevents text from wrapping */
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Tooltip should not interfere with mouse events */
+    white-space: nowrap; 
+    opacity: 0; 
+    pointer-events: none; 
     transition: opacity 0.5s ease, transform 0.3s ease;
-    
-    /* Positioning */
-    bottom: 100%; /* Position tooltip above the element */
+    bottom: 100%; 
     left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
+    transform: translateX(-50%); 
 }
 
-/* Create the triangle (tail) pointing down to the element */
 .notification-text::before {
     content: '';
     position: absolute;
-    bottom: 93%; /* Position the triangle right below the tooltip */
+    bottom: 93%;
     left: 47%;
     rotate: 180deg;
     transform: translateX(-50%);
-    border-width: 8px; /* Size of the triangle */
+    border-width: 8px; 
     border-style: solid;
-    border-color: transparent transparent #333 transparent; /* Triangle with the same color as the tooltip */
-    opacity: 0; /* Hide it initially */
+    border-color: transparent transparent #333 transparent; 
+    opacity: 0;
     transition: opacity 0.2s ease;
 }
 
 .notification-text:hover::after,
 .notification-text:hover::before {
-    opacity: 1; /* Show the tooltip and triangle on hover */
-    transform: translateX(-50%) translateY(-10%); /* Move tooltip and tail into place */
+    opacity: 1; 
+    transform: translateX(-50%) translateY(-10%); 
 }
 
-#inputModal {
+.input-modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent black */
-    backdrop-filter: blur(5px); /* Blurry background */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); 
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Input box container */
 .modal-content {
     background-color: white;
     padding: 20px;
@@ -105,7 +101,7 @@ body {
     transform: scale(1.5);
 }
 
-#toDoPlaceholder{
+.to-do-placeholder{
     opacity: 50%;
 }
 

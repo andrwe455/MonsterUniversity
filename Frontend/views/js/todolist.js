@@ -21,7 +21,7 @@ function deleteElement(element) {
     } 
 }
 
-function addItem(){
+function addItem() {
     var inputValue = document.getElementById("inputField").value;
 
     if (inputValue === '') {
@@ -42,7 +42,7 @@ function addItem(){
             </div>
             <span class="text">${inputValue}</span>
             <div class="tools">
-              <i class="fas fa-trash" onclick="deleteElement(this)"></i>
+              <i class="fas fa-trash delete-icon"></i>
             </div>
         `;
 
@@ -51,6 +51,11 @@ function addItem(){
     }
 
     document.getElementById("inputField").value = "";
+    const trashIcon = li.querySelector('.delete-icon');
+
+    trashIcon.addEventListener('click', function() {
+        deleteElement(this);
+    });
 }
 
 document.getElementById("confirmBtn").addEventListener("click", function() {
