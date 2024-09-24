@@ -131,7 +131,7 @@ document.getElementById("confirmBtn").addEventListener("click", function() {
     const remainingRows = tableBody.childElementCount; 
 
     if (remainingRows === 1) {
-      document.getElementById("noPending").style.display = "block";
+      document.getElementById("noPending").style.display = "table-cell";
     } 
 
     document.getElementById("inputModal").style.display = "none";

@@ -204,10 +204,22 @@ body {
   background-color: #dc3545;
 }
 
+.student-name{
+  display: -webkit-box; /* Fallback for older browsers */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Limit the text to 2 lines */
+  line-clamp: 2;
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis;
+}
+
 @media(max-width: 654px){
   .alert{
     padding: 0%;
     font-size: larger;
+  }
+  .teacher-table-head{
+    display: block;
   }
 }
 
@@ -225,3 +237,20 @@ body {
   }
 }
 
+@media(max-width: 400px){
+  .enrollments-card{
+    box-shadow: none;
+  }
+  
+  .enrollments-content-wrapper{
+    background-color: transparent;
+  }
+
+  .enrollments-card-header, .enrollments-main-header{
+    border-bottom: none;
+  }
+
+  .enrollments-main-footer{
+    border-top: none;
+  }
+}
