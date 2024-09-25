@@ -79,10 +79,20 @@ async function createSubject(req,res){
         console.log(error);
     }
 }
+
+async function getSubjects(req,res){
+    try {
+        const subjects = await subjectSchema.find();
+        res.json(subjects);
+    } catch (error) {
+        console.log(error);
+    }
+}
 module.exports = {
     login,
     setTeacher,
     teacherScore,
     Logout,
-    createSubject
+    createSubject,
+    getSubjects
 };
