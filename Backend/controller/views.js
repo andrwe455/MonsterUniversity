@@ -32,9 +32,16 @@ function createSubject (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboarCreateSubject.html'));
 }
 
+
+function createTeacher (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerDashboardCreateTeacher.html')); 
+}
+
 module.exports = {
     login,
     secondFactor,
     home,
-    createSubject
+    createSubject,
+    createTeacher
 }

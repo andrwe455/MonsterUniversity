@@ -3,23 +3,18 @@ const router = Router();
 const controller = require('../controller/controller.js');
 const viwes = require('../controller/views.js');
 
-const mongoose = require('../database/mongo.js');
 
 
-//pages routes
 
-/**
- * 
- */
 router.get('/login', viwes.login);
 router.get('/secondFactor', viwes.secondFactor);
 router.get('/home/:role', viwes.home);
-//admin routes
+
+
 router.get('/home/admin/createSubject', viwes.createSubject);
+router.get('/home/manager/createTeacher', viwes.createTeacher);
 
 
-
-//api routes
 
 router.get('/logout', controller.Logout);
 

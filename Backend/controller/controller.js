@@ -63,7 +63,6 @@ async function Logout(req,res) {
         logout(auth);
         res.redirect('/');
     } catch (error) {
-        // An error happened.
         console.log('error', error);
         res.status(500).json('Error during logout');
     }
