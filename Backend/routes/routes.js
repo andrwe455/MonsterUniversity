@@ -25,4 +25,7 @@ router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);
 router.post('/crtSubject',controller.createSubject)
 
+
+router.put('/updateSubject/:id', controller.updateSubject);
+
 module.exports = router;

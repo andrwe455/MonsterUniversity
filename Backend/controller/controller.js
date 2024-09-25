@@ -17,7 +17,7 @@ async function login(req,res,next) {
                 res.json(error);
             });
         }).catch((error) => {
-            res.json(error);
+            res.redirect('/?error='+error.message);
         });
         
     }catch(error){
@@ -88,11 +88,34 @@ async function getSubjects(req,res){
         console.log(error);
     }
 }
+
+async function updateSubject(req,res){
+    
+    try{
+        const {id} = req.params;
+        const subject = await subjectSchema.findOne({id: id});
+        
+        subject.name = req.body.name;
+        subject.description = req.body.description;
+        subject.semester = req.body.semester;
+        subject.preRequirements = req.body.preRequirements;
+        subject.credits = req.body.credits;
+        
+        await subject.save();
+
+        res.redirect('/home/admin/showSubject?success=Subject updated successfully');
+    }catch(error){
+        console.log(error);
+        res.redirect('/home/admin/showSubject?error=Error updating subject');
+    }
+
+} 
 module.exports = {
     login,
     setTeacher,
     teacherScore,
     Logout,
     createSubject,
-    getSubjects
+    getSubjects,
+    updateSubject
 };

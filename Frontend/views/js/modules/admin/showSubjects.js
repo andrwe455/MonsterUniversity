@@ -33,6 +33,24 @@ window.onload = function() {
             td7.textContent = element.credits;
             tr.appendChild(td7);
 
+            const td8 = document.createElement('td');
+            const editButton = document.createElement('a');
+            editButton.classList.add('fas', 'fa-edit', 'mr-2');
+            editButton.setAttribute('data-toggle', 'modal');
+            editButton.setAttribute('data-target', '#modal-default');
+
+            editButton.onclick = function() {
+                // Add your edit functionality here
+            };
+            td8.appendChild(editButton);
+
+            const deleteButton = document.createElement('a');
+            deleteButton.classList.add('fas', 'fa-trash');
+            
+            td8.appendChild(deleteButton);
+
+            tr.appendChild(td8);
+
             table.appendChild(tr);
             
             $(function () {
