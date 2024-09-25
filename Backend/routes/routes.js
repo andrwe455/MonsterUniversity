@@ -12,11 +12,13 @@ router.get('/home/:role', viwes.home);
 
 
 router.get('/home/admin/createSubject', viwes.createSubject);
+router.get('/home/admin/showSubject', viwes.showSubject);
 router.get('/home/manager/createTeacher', viwes.createTeacher);
 
 
 
 router.get('/logout', controller.Logout);
+router.get('/getSubjects', controller.getSubjects);
 
 router.post('/login', controller.login);
 router.post('/setTeacher', controller.setTeacher);
