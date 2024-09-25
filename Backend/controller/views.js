@@ -23,7 +23,7 @@ function home (req, res) {
         res.sendFile(path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerDashboardHome.html'));
     }
     else{
-        res.json({message: 'role not found'});
+      res.json({message: 'role not found'});
     }
 }
 
