@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     let dropdownOptions = '';
     for (let i = 1; i <= subjectsEnrolledCount; i++) {
-      dropdownOptions += `<option value="Subject ${i}">Subject ${i}</option>`;
+      dropdownOptions += `<option value="Subject ${i}" disabled>Subject ${i}</option>`;
     }
 
     let subjectsDropdown = `<select class="form-control"><option value="" disabled selected>${subjectsEnrolledCount} Subjects</option>${dropdownOptions}</select>`;

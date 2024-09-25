@@ -140,9 +140,9 @@ document.getElementById("confirmBtn").addEventListener("click", function() {
 
 document.getElementById("addRowBtn").addEventListener("click", function() {
   let grade = generateRandomNumber();
-  addRow('Professor X', 'Advanced telepathy', grade, '../../img/PfpPlaceholder.png');
+  addRow('Charles Francis Xavier', 'Advanced telepathy', grade, '../../../img/PfpPlaceholder.png');
 });
 
 function generateRandomNumber() {
-  return (Math.random() * 2.9).toFixed(1);
+return (Math.random() * 3.4).toFixed(1);
 }

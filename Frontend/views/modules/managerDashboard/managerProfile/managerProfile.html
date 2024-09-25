@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manager profile</title>
+    <title>Profile</title>
 
-    <link rel="stylesheet" href="../../css/bootstrap-4.min.css">
-    <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/adminlte.min.css">
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../../css/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/adminlte.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
   </head>
 
   <body class="hold-transition sidebar-mini">
 
     <div class="wrapper">
       <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="../../img/MUlogo.png" alt="AdminLTELogo">
+        <img class="animation__shake" src="../../../img/MUlogo.png" alt="AdminLTELogo">
       </div>
 
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -49,16 +49,16 @@
         </ul>
       </nav>
 
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="index3.html" class="brand-link">
-          <img src="../../img/MUlogo.png" alt="AdminLTE Logo" class="brand-image elevation-3 logo" style="opacity: .8">
+      <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">
+        <a href="manager/Dashboard" class="brand-link">
+          <img src="../../../img/MUlogo.png" alt="AdminLTE Logo" class="brand-image elevation-3 logo" style="opacity: .8">
           <span class="brand-text font-weight-light">Monster's University</span>
         </a>
 
         <div class="sidebar">
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="../../img/PfpPlaceholder.png" class="img-circle elevation-2 logo" alt="User Image">
+              <img src="../../../img/PfpPlaceholder.png" class="img-circle elevation-2 logo" alt="User Image">
             </div>
             <div class="info">
               <a href="#" class="d-block ellipsis-text">Andres Atehortua Gutierrez Jimenez </a>
@@ -132,6 +132,71 @@
             </div>
           </div>
         </section>
+
+        <div class="card card-primary card-outline card-manager-profile">
+          <div class="card-body box-profile">
+            <button class="btn btn-sm btn-outline-primary center" id="changeAvatarBtn">Change avatar</button>
+            <input type="file" id="avatarInput" accept="image/*" style="display: none;"/>
+
+            <div class="text-center">
+              <img class="profile-user-img img-fluid img-circle" src="../../../img/PfpPlaceholder.png" alt="User profile picture" id="avatar">
+            </div>
+            <h3 class="profile-username text-center">Stephen Vincent Strange</h3>
+            <p class="text-muted text-center">Manager</p>
+          </div>
+        </div>
+
+        <div class="card card-primary card-manager-info">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-id-card mr-1"></i> 
+              About Me
+            </h3>
+          </div>
+          
+          <div class="card-body">
+ 
+            <strong>
+              <i class="fas fa-book mr-1"></i> 
+              Education
+            </strong>
+ 
+            <p class="text-muted">
+              Master of the mystical arts in Kamal-Taj
+            </p>
+
+            <hr>
+            <strong>
+              <i class="fas fa-map-marker-alt mr-1"></i> 
+              Location
+            </strong>
+            <p class="text-muted">Manhattan, New York City</p>
+
+            <hr>
+            <strong>
+              <i class="fas fa-pencil-alt mr-1"></i> 
+              Skills
+            </strong>
+            <ul class="text-muted">
+              <li>Mystical arts</li>
+              <li>Magic</li>
+              <li>Surgery</li>
+              <li>Medicine</li>
+              <li>Making circles with my fingers</li>
+            </ul>
+
+            <hr>
+            <strong>
+              <i class="far fa-envelope mr-1"></i> 
+                Email
+            </strong>
+            <p class="text-muted">
+              ste_vin_str@monster.edu.us 
+              <!--This contact button SHOULD ONLY show up if the user looking at the profile isn't the owner-->
+              <button class="btn btn-info btn-sm">Contact</button>
+            </p>
+          </div>
+        </div>
       </div>
 
       <footer class="main-footer">
@@ -144,10 +209,11 @@
     </div>
 
     <script src="https://kit.fontawesome.com/48b7f93703.js" crossorigin="anonymous"></script>
-    <script src="../../js/jquerys/jquery.min.js"></script>
-    <script src="../../js/jquerys/jquery-ui.min.js"></script>
+    <script src="../../../js/jquerys/jquery.min.js"></script>
+    <script src="../../../js/jquerys/jquery-ui.min.js"></script>
     <script>$.widget.bridge('uibutton', $.ui.button)</script>
-    <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
-    <script src="../../js/jquerys/adminlte.js"></script>
+    <script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
+    <script src="../../../js/jquerys/adminlte.js"></script>
+    <script src="../../../js/modules/manager/profile.js"></script>
   </body>
 </html>
