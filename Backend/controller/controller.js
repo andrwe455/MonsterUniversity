@@ -1,4 +1,5 @@
 const usersSchema = require('../schema/usersSchema');
+const subjectSchema = require('../schema/subjectSchema');
 const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
@@ -68,9 +69,20 @@ async function Logout(req,res) {
     }
     
 }
+
+async function createSubject(req,res){
+    try{
+        const newSubject = new subjectSchema(req.body);
+        await newSubject.save();
+        res.redirect('/home/admin/createSubject');
+    }catch(error){
+        console.log(error);
+    }
+}
 module.exports = {
     login,
     setTeacher,
     teacherScore,
-    Logout
+    Logout,
+    createSubject
 };

@@ -21,5 +21,6 @@ router.get('/logout', controller.Logout);
 router.post('/login', controller.login);
 router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);
+router.post('/crtSubject',controller.createSubject)
 
 module.exports = router;
