@@ -22,6 +22,7 @@ router.get('/home/student/AcedmicHistory', viwes.createStudentAcademicHistory);
 router.get('/home/student/TeachersEvaluation', viwes.createStudentTeachersEvaluation);
 router.get('/home/student/AttendancePerSubject', viwes.createStudentAttendancePerSubject);
 router.get('/home/student/Inscripcions', viwes.createStudentInscripcions);
+router.get('/home/student/Cancel', viwes.createCancelsubjects);
 
 //api routes
 

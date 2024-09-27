@@ -53,6 +53,10 @@ function createStudentInscripcions(req, res) {
     res.sendFile(path.join(proyectPath, 'Frontend', 'views', 'modules', 'dashboard_student','Studentinscripcions' ,'StudentInscripcions.html'));
 }
 
+function createCancelsubjects(req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile(path.join(proyectPath, 'Frontend', 'views', 'modules', 'dashboard_student','CancelSubjects' ,'CancelSubjects.html'));
+}
 
 module.exports = {
     login,
@@ -62,6 +66,7 @@ module.exports = {
     createStudentAcademicHistory,
     createStudentTeachersEvaluation,
     createStudentAttendancePerSubject,
-    createStudentInscripcions
+    createStudentInscripcions,
+    createCancelsubjects
     
 }
