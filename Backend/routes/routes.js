@@ -23,8 +23,9 @@ router.get('/home/student/Cancel', viwes.createCancelsubjects);
 router.get('/logout', controller.Logout);
 router.get('/home/admin/createSubject', viwes.createSubject);
 router.get('/home/admin/showSubject', viwes.showSubject);
+router.get('/home/admin/crtGroup', viwes.createGroup);
 router.get('/home/manager/createTeacher', viwes.createTeacher);
-
+router.get('/getInfo',controller.getTeachers);
 
 
 router.get('/logout', controller.Logout);

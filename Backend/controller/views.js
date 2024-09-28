@@ -37,6 +37,10 @@ function showSubject (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboardShowSubjects.html'));
 }
+function createGroup (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardCreateGroup.html'));
+}
 
 function createTeacher (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
@@ -68,6 +72,8 @@ function createCancelsubjects(req, res) {
     res.sendFile(path.join(proyectPath, 'Frontend', 'views', 'modules', 'dashboard_student','CancelSubjects' ,'CancelSubjects.html'));
 }
 
+
+
 module.exports = {
     login,
     secondFactor,
@@ -77,7 +83,8 @@ module.exports = {
     createStudentTeachersEvaluation,
     createStudentAttendancePerSubject,
     createStudentInscripcions,
-    createCancelsubjects
+    createCancelsubjects,
     showSubject,
+    createGroup,
     createTeacher
 }
