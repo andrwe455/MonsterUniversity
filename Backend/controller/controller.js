@@ -1,4 +1,3 @@
-
 const usersSchema = require('../schema/usersSchema');
 const subjectSchema = require('../schema/subjectSchema');
 const  {auth, signIn,logout} = require('../database/firebase');
@@ -91,26 +90,35 @@ async function getSubjects(req,res){
 }
 
 async function updateSubject(req,res){
-    
     try{
-        const {id} = req.params;
-        const subject = await subjectSchema.findOne({id: id});
+      const {id} = req.params;
+      const subject = await subjectSchema.findOne({id: id});
         
-        subject.name = req.body.name;
-        subject.description = req.body.description;
-        subject.semester = req.body.semester;
-        subject.preRequirements = req.body.preRequirements;
-        subject.credits = req.body.credits;
+      subject.name = req.body.name;
+      subject.description = req.body.description;
+      subject.semester = req.body.semester;
+      subject.preRequirements = req.body.preRequirements;
+      subject.credits = req.body.credits;
         
-        await subject.save();
+      await subject.save();
 
-        res.redirect('/home/admin/showSubject?success=Subject updated successfully');
+      res.redirect('/home/admin/showSubject?success=Subject updated successfully');
     }catch(error){
-        console.log(error);
-        res.redirect('/home/admin/showSubject?error=Error updating subject');
+      console.log(error);
+      res.redirect('/home/admin/showSubject?error=Error updating subject');
     }
 
-} 
+}
+
+async function getTeachers(req,res){
+    try {
+        const teachers = await usersSchema.find({role: 'teacher'});
+        res.json(teachers);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     login,
     setTeacher,
@@ -118,5 +126,6 @@ module.exports = {
     Logout,
     createSubject,
     getSubjects,
-    updateSubject
+    updateSubject,
+    getTeachers
 };
