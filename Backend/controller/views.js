@@ -37,10 +37,6 @@ function showSubject (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboardShowSubjects.html'));
 }
-function createGroup (req, res) {
-    const proyectPath = path.resolve(__dirname, '../..');
-    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardCreateGroup.html'));
-}
 
 function createTeacher (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
@@ -72,7 +68,20 @@ function createCancelsubjects(req, res) {
     res.sendFile(path.join(proyectPath, 'Frontend', 'views', 'modules', 'dashboard_student','CancelSubjects' ,'CancelSubjects.html'));
 }
 
+function checkEnrollments (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerEnrollments','managerEnrollments.html'));
+}
 
+function teachersEvaluationsReview (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerTeachersEvaluationsReview','managerTeachersEvaluationReview.html'));
+}
+
+function managerProfile(req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerProfile','managerProfile.html'));
+}
 
 module.exports = {
     login,
@@ -85,6 +94,8 @@ module.exports = {
     createStudentInscripcions,
     createCancelsubjects,
     showSubject,
-    createGroup,
-    createTeacher
+    createTeacher,
+    checkEnrollments,
+    teachersEvaluationsReview,
+    managerProfile
 }
