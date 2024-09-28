@@ -1,19 +1,7 @@
 const mongose = require('mongoose');
 
 const studentSchema = new mongose.Schema({
-    id: Number,
-    Name:{
-        type: String,
-        required: true
-    },
-    LastName:{
-        type: String,
-        required: true
-    },
-    Email:{
-        type: String,
-        required: true
-    },
+    
     AcademicDegree:{
         type: String,
         required: true
@@ -28,8 +16,9 @@ const studentSchema = new mongose.Schema({
     },
     Status:{
         type: String,
-        required: true
+        required: true,
+        default: 'Activo'
     }
 });
 
-module.exports = mongose.model('student', studentSchema, 'student');
+module.exports = studentSchema;
