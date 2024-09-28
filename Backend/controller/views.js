@@ -37,11 +37,17 @@ function showSubject (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboardShowSubjects.html'));
 }
 
+function createGroup (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardCreateGroup.html'));
+}
 
 function createTeacher (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerDashboardCreateTeacher.html')); 
 }
+
+
 
 module.exports = {
     login,
@@ -49,5 +55,6 @@ module.exports = {
     home,
     createSubject,
     showSubject,
+    createGroup,
     createTeacher
 }
