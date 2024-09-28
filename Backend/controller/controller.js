@@ -1,4 +1,6 @@
+
 const usersSchema = require('../schema/usersSchema');
+const subjectSchema = require('../schema/subjectSchema');
 const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
@@ -16,7 +18,7 @@ async function login(req,res,next) {
                 res.json(error);
             });
         }).catch((error) => {
-            res.json(error);
+            res.redirect('/?error='+error.message);
         });
         
     }catch(error){
@@ -63,15 +65,58 @@ async function Logout(req,res) {
         logout(auth);
         res.redirect('/');
     } catch (error) {
-        // An error happened.
         console.log('error', error);
         res.status(500).json('Error during logout');
     }
     
 }
+
+async function createSubject(req,res){
+    try{
+        const newSubject = new subjectSchema(req.body);
+        await newSubject.save();
+        res.redirect('/home/admin/createSubject');
+    }catch(error){
+        console.log(error);
+    }
+}
+
+async function getSubjects(req,res){
+    try {
+        const subjects = await subjectSchema.find();
+        res.json(subjects);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function updateSubject(req,res){
+    
+    try{
+        const {id} = req.params;
+        const subject = await subjectSchema.findOne({id: id});
+        
+        subject.name = req.body.name;
+        subject.description = req.body.description;
+        subject.semester = req.body.semester;
+        subject.preRequirements = req.body.preRequirements;
+        subject.credits = req.body.credits;
+        
+        await subject.save();
+
+        res.redirect('/home/admin/showSubject?success=Subject updated successfully');
+    }catch(error){
+        console.log(error);
+        res.redirect('/home/admin/showSubject?error=Error updating subject');
+    }
+
+} 
 module.exports = {
     login,
     setTeacher,
     teacherScore,
-    Logout
+    Logout,
+    createSubject,
+    getSubjects,
+    updateSubject
 };
