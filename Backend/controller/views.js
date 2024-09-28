@@ -83,7 +83,7 @@ module.exports = {
     createStudentTeachersEvaluation,
     createStudentAttendancePerSubject,
     createStudentInscripcions,
-    createCancelsubjects
+    createCancelsubjects,
     showSubject,
     createGroup,
     createTeacher
