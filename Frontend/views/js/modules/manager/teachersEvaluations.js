@@ -2,6 +2,17 @@ var buttons = document.getElementsByClassName("btn-sm");
 var rowToDelete = null;
 let actionType = '';
 
+
+window.onload = function() {
+  fetch('/getTeachers').then(res => res.json()).then(data => {
+    if (data.length > 0) {
+      data.forEach(teacher => {
+        addRow(teacher.Name, teacher.test.Subject, teacher.test.grade, teacher.profilePicUrl);
+      });
+    }
+  });
+}
+
 for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function() {
     document.getElementById("inputModal").style.display = "flex";

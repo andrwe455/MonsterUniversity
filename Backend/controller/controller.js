@@ -1,5 +1,6 @@
 const usersSchema = require('../schema/usersSchema');
 const subjectSchema = require('../schema/subjectSchema');
+const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
 const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
@@ -80,10 +81,12 @@ async function createSubject(req,res){
     }
 }
 
-async function getSubjects(req,res){
+async function getSubjects(req,res,next){
     try {
         const subjects = await subjectSchema.find();
-        res.json(subjects);
+
+        req.body.subjects = subjects;
+        next();
     } catch (error) {
         console.log(error);
     }
@@ -110,10 +113,39 @@ async function updateSubject(req,res){
 
 }
 
+async function getInfo(req,res,next){
+    try {
+        const teachers = await usersSchema.find({role: 'teacher'});
+        req.body.teachers = teachers;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 async function getTeachers(req,res){
     try {
         const teachers = await usersSchema.find({role: 'teacher'});
         res.json(teachers);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getStudents(req,res){
+    try {
+        const students = await usersSchema.find({role: 'student'});
+        req.body.students = students;
+        res.json(req.body);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getGroups(req,res){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        res.json(groups);
     } catch (error) {
         console.log(error);
     }
@@ -127,5 +159,8 @@ module.exports = {
     createSubject,
     getSubjects,
     updateSubject,
-    getTeachers
+    getTeachers,
+    getStudents,
+    getGroups,
+    getInfo
 };

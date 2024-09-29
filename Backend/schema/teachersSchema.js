@@ -2,9 +2,14 @@ const mongose = require('mongoose');
 
 const semesterSchema = new mongose.Schema({
     Semester: String,
+    Subject: String,
     Grade: [Number],
     Average: {
         type: Number
+    },
+    status: {
+        type: Boolean,
+        default: false
     },
     _id : false
 });
@@ -16,7 +21,11 @@ const teacherSchema = new mongose.Schema({
         required: true,
         default: 'Activo'
     },
-    test:[semesterSchema]
+    test:[semesterSchema],
+    warningTracker: {
+        type: Number,
+        default: 0
+    }
 });
 
 module.exports =teacherSchema;
