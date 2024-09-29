@@ -83,6 +83,11 @@ function managerProfile(req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','managerDashboard','managerProfile','managerProfile.html'));
 }
 
+function createGroup (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardCreateGroup.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -97,5 +102,6 @@ module.exports = {
     createTeacher,
     checkEnrollments,
     teachersEvaluationsReview,
-    managerProfile
+    managerProfile,
+    createGroup
 }

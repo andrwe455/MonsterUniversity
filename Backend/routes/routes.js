@@ -17,11 +17,11 @@ router.get('/home/student/AttendancePerSubject', viwes.createStudentAttendancePe
 router.get('/home/student/Inscripcions', viwes.createStudentInscripcions);
 router.get('/home/student/Cancel', viwes.createCancelsubjects);
 
-//api routes
 router.get('/logout', controller.Logout);
 router.get('/home/admin/createSubject', viwes.createSubject);
 router.get('/home/admin/showSubject', viwes.showSubject);
 router.get('/home/admin/createTeacher', viwes.createTeacher);
+router.get('/home/admin/crtGroup', viwes.createGroup);
 
 //manager routes
 router.get('/home/manager/enrollments', viwes.checkEnrollments);
@@ -36,5 +36,9 @@ router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);
 router.post('/crtSubject',controller.createSubject)
 router.put('/updateSubject/:id', controller.updateSubject);
+
+
+router.get('/home/manager/createTeacher', viwes.createTeacher);
+router.get('/getInfo',controller.getTeachers);
 
 module.exports = router;
