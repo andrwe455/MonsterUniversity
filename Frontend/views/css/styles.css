@@ -228,9 +228,6 @@ body {
     padding: 0%;
     font-size: larger;
   }
-  .teacher-table-head{
-    display: block;
-  }
 }
 
 @media(max-width: 539px){
