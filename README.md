@@ -17,7 +17,7 @@ The **official** web platform for Monster's University.
 
 ## About the project
 
-This project is aimed towards the members of Monster's University, to equip them with a platform that fully adjusts to their needs, whether they are student, teacher, manager or administrator, this plataform will come in handy and be of great value to each one of them.
+This project aims to equip the members of Monster's University with a platform that fully adjusts to their needs, whether they are student, teacher, manager or administrator, this plataform will come in handy and be of great value to each one of them.
 
 ### Built with
 * [AdminLTE 3](https://adminlte.io/themes/v3/)
@@ -45,17 +45,17 @@ Once you have that set up, we recommend you to follow this guide using [Visual S
 2. Open cmd inside the directory you're located in, copy [this URL](https://github.com/andrwe455/MonsterUniversity) and use the `git clone` command followed by the URL.   
     > git clone https://github.com/andrwe455/MonsterUniversity  
 
-    Alternatively you can copy the command above and paste it into the console. 
-3. You should see a folder named **MonsterUniversity** in the directory you ran the command on, open this folder in visual studio code for the next steps.
+    Alternatively, you can copy the command above and paste it into the console. 
+3. You should see a folder named **MonsterUniversity** in the directory you ran the command on. Open this folder in visual studio code for the next steps.
 
 ### Running the project
 1. After the project folder has been opened in Visual Studio Code, open the *TERMINAL*, type `npm install i` to install the necessary dependencies and press enter. The dependencies installation process might take a while so be patient 🧘‍♂️.
 2. Type `npm start` to run the server.
 3. In case Windows Firewall asks for permission, simply grant it. If not, then skip this step. 
-4. You will see `http://localhost:3001` on the terminal, **Click** on it while also holding down **CTRL**.
+4. You will see `http://localhost:3001` on the terminal. **Click** on it while also holding down **CTRL**.
 
 ## Usage
-These are the e-mails for each role respectively, the password for each one of them is **123456**.
+These are the e-mails for each role respectively. The password for each one of them is **123456**.
 
 >manager@example.com *manager*   
 student@example.com *student*  
