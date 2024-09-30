@@ -31,12 +31,14 @@ Once you have that set up, we recommend you to follow this guide using [Visual S
 
 ### Installing Node.js 
 1. Download the most recent version of Node.js from [this link](https://nodejs.org/en/download/prebuilt-installer).
-2. After the `.msi` installer finishes downloading, run it and follow the installation process.  
-  2.1. Choose the directory you want Node.js to be installed, this option will be available in the installation process.  
-  2.2. On the *Custom Setup window*, click *Add to PATH* and then *Next*.  
-  2.3. Check the checkbox on the *Tools for Native Modules* window and click *Next* to finish the installation.   
+2. After the `.msi` installer finishes downloading, run it and follow the installation process.
+3. Choose the directory you want Node.js to be installed, this option will be available in the installation process.
+4. On the *Custom Setup window*, click *Add to PATH* and then *Next*.
+5. Check the checkbox on the *Tools for Native Modules* window and click *Next* to finish the installation.
+6. In case it asks you for permissions, grant them. If not, then skip this step.
 
-To check if Node.js has been correctly installed, open **Windows Powershell** and run the command `npm -v`, which should output the installed version number.
+>[!NOTE]  
+>To check if Node.js has been correctly installed, open **Windows Powershell** and run the command `npm -v`, which should output the installed version number.
 
 ### Making a local repository of this project in your machine
 1. Position yourself in the directory where you want this project to be located.
@@ -44,10 +46,10 @@ To check if Node.js has been correctly installed, open **Windows Powershell** an
     > git clone https://github.com/andrwe455/MonsterUniversity  
 
     Alternatively you can copy the command above and paste it into the console. 
-3. You should see a folder named **MonsterUniversity** in the directory you ran the command on, open this folder in visual studio for the next steps.
+3. You should see a folder named **MonsterUniversity** in the directory you ran the command on, open this folder in visual studio code for the next steps.
 
 ### Running the project
-1. After the project folder has been opened in Visual Studio Code, open the *TERMINAL*, type `npm i` to install the necessary dependencies and press enter.
+1. After the project folder has been opened in Visual Studio Code, open the *TERMINAL*, type `npm install i` to install the necessary dependencies and press enter. The dependencies installation process might take a while so be patient 🧘‍♂️.
 2. Type `npm start` to run the server.
 3. In case Windows Firewall asks for permission, simply grant it. If not, then skip this step. 
 4. You will see `http://localhost:3001` on the terminal, **Click** on it while also holding down **CTRL**.
