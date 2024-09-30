@@ -1,51 +1,72 @@
 const mongoose = require('mongoose');
 
-const docentSchema = new mongoose.Schema({
-    // Campos específicos para docentes
+const teacherSecheduleSchema = new mongoose.Schema({
+
     officeHours: String,
-    courseLoad: Number
+    conditions: String,
+    courseLoad: Number,
+    Subjects: {
+        type: Array,
+        required: true
+    },
 });
 
-const studentSchema = new mongoose.Schema({
-    // Campos específicos para estudiantes
+const studentSecheduleSchema = new mongoose.Schema({
     Subjects: {
         type: Array,
         required: true
     },
     Schedule:{
-        Subject:{
-            start: {
-                type: String,
-                required: true
-            },
-            end: {
-                type: String,
-                required: true
-            },
-            day: {
-                type: Array,
-                required: true
-            },
-            teacher: {
-                type: String,
-                required: true
+        Subject:[
+            {
+                start: {
+                    type: String,
+                    required: true
+                },
+                end: {
+                    type: String,
+                    required: true
+                },
+                day: {
+                    type: Array,
+                    required: true
+                },
+                teacher: {
+                    type: String,
+                    required: true
+                },
+                credits: {
+                    type: Number,
+                    required: true
+                },
+                Name: {
+                    type: String,
+                    required: true
+                }
             }
-        }
+        ]
+    },
+    TotalCredits: {
+        type: Number,
+        required: true
+    },
+    Semester: {
+        type: String,
+        required: true
     }
 });
 
 const schedulesSchema = new mongoose.Schema({
-    id: Number,
+    id: String,
     role: {
         type: String,
-        enum: ['docent', 'student'],
+        enum: ['Teacher', 'student'],
         required: true
-    },
-    conditions: String // Condiciones específicas para docentes
-});
+    } 
+},{ discriminatorKey: 'role' });
 
-schedulesSchema.discriminator('Docent', docentSchema);
-schedulesSchema.discriminator('Student', studentSchema);
+schedulesSchema.discriminator('Teacher', teacherSecheduleSchema);
+schedulesSchema.discriminator('Student', studentSecheduleSchema);
 
 const Schedule = mongoose.model('Schedule', schedulesSchema, 'Schedules');
 
