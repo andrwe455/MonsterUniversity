@@ -131,22 +131,19 @@
             <div class="card-header">
               <h3 class="card-title">Teacher's evaluations</h3>
             </div>
-            <div class="card-body p-0">
-              <table class="table table-striped projects fixed-table">
-                <thead class="teacher-table-head">
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped table-hover">
+                <thead >
                   <tr>
-                    <th class="teacher-name-table-header">Teacher's name</th>
-                    <th class="teacher-pfp-table-header">Profile picture</th>
-                    <th class="subject-table-header">Subject</th>
-                    <th class="grade-table-header">Grade</th>
-                    <th class="options-table-header">Options</th>
+                    <th>Teacher's name</th>
+                    <th>Profile picture</th>
+                    <th>Subject</th>
+                    <th>Grade</th>
+                    <th>Options</th>
                   </tr>
                 </thead>
 
                 <tbody id="teacherTableBody">
-                  <td colspan="5" style="text-align: center;" id="noPending">
-                    THERE ARE NO TEACHER'S EVALUATIONS PENDING REVIEW!
-                  </td>
                 </tbody>
               </table>
             </div>
@@ -183,7 +180,10 @@
       <script>$.widget.bridge('uibutton', $.ui.button)</script>
       <script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
       <script src="../../../js/jquerys/adminlte.js"></script>
+      <script src="../../../js/jquerys/jquery.dataTables.min.js"></script>
+      <script src="../../../js/jquerys/dataTables.bootstrap4.min.js"></script>
       <script src="../../../js/modules/manager/teachersEvaluations.js"></script>
+      <script src="../../../js/jquerys/sweetalert2.min.js"></script>
     </div>
   </body>
 </html>

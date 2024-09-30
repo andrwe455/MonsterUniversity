@@ -1,21 +1,24 @@
 const mongose = require('mongoose');
 
-const semesterSchema = new mongose.Schema({
-    Semester: String,
-    Subject: String,
+const subjectTestSchema = new mongose.Schema({
+    Name: String,
     Grade: [Number],
     Average: {
         type: Number
     },
     status: {
-        type: Boolean,
+        type: String,
         default: false
-    },
+    }
+});
+
+const semesterSchema = new mongose.Schema({
+    Semester: String,
+    Subject: [subjectTestSchema],
     _id : false
 });
 
 const teacherSchema = new mongose.Schema({
-
     status: {
         type: String,
         required: true,

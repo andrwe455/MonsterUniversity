@@ -33,12 +33,18 @@ router.get('/getSubjects', controller.getSubjects);
 router.get('/getTeachers', controller.getTeachers);
 router.get('/getInfo',controller.getInfo,controller.getSubjects,controller.getStudents);
 router.get('/getStudents', controller.getStudents);
+router.get('/enrollments', controller.getEnrollments);
 
 router.post('/login', controller.login);
 router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);
 router.post('/crtSubject',controller.createSubject)
+
+
 router.put('/updateSubject/:id', controller.updateSubject);
+router.put('/sendWarning', controller.sendWarning);
+
+router.delete('/deleteTeacher', controller.deleteTeacher);
 
 
 

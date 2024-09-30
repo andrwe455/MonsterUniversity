@@ -1,3 +1,5 @@
+
+
 var buttons = document.getElementsByClassName("btn-sm");
 var rowToDelete = null;
 let actionType = '';
@@ -7,7 +9,58 @@ window.onload = function() {
   fetch('/getTeachers').then(res => res.json()).then(data => {
     if (data.length > 0) {
       data.forEach(teacher => {
-        addRow(teacher.Name, teacher.test.Subject, teacher.test.grade, teacher.profilePicUrl);
+        const tableBody = document.getElementById("teacherTableBody");
+        if(teacher.status === 'Activo'){
+          if(teacher.test.length > 0){
+            teacher.test.forEach(semester => {
+              semester.Subject.forEach(subject => {
+                const newRow = document.createElement("tr");
+                const td = document.createElement("td");
+                const td2 = document.createElement("td");
+                const td3 = document.createElement("td");
+                const td4 = document.createElement("td");
+                const td5 = document.createElement("td");
+
+                td.innerText = teacher.Name;
+                td2.innerHTML = `<img alt="Avatar" class="table-avatar" src="${teacher.profilePicUrl}">`;
+                td3.innerText = subject.Name;
+                td4.innerHTML = `<span class="alert alert-secondary grade-table-text">${subject.Average}</span>`;
+                td5.innerHTML = `
+                  <button type="button" class="btn btn-warning btn-sm" onclick="confirmWarningRow('${teacher._id}')">
+                    <i class="fas fa-warning"></i>
+                    Send warning
+                  </button>
+
+                  <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeleteRow('${teacher._id}','${subject.Name}')">
+                    <i class="fas fa-user-times"></i>
+                    Remove
+                  </button>
+                `;
+
+                newRow.appendChild(td);
+                newRow.appendChild(td2);
+                newRow.appendChild(td3);
+                newRow.appendChild(td4);
+                newRow.appendChild(td5);
+                tableBody.appendChild(newRow);
+              });
+            });
+          };
+        };
+      });
+      $(document).ready(function () {
+        var table = $("#example1").DataTable({
+          responsive: true,
+          lengthChange: false,
+          autoWidth: false,
+          language: {
+            emptyTable: "No students enrolled :(",
+            zeroRecords: "No enrollments found."
+          },
+          "initComplete": function (settings, json) {
+            $('.row .col-md-6:eq(0)').remove();
+          }
+        });
       });
     }
   });
@@ -29,131 +82,75 @@ window.addEventListener("click", function(event) {
   }
 });
 
-function updateText(action) {
-  document.getElementById("confirmationText").textContent = "Are you sure you want to " + action;
-}
+function confirmDeleteRow(id,subject) {
 
-// Function to be later adjusted integrating the database through the backend
-function addRow(teacherName, subject, grade, profilePicUrl) {
-  const tableBody = document.getElementById("teacherTableBody");
-  const newRow = document.createElement("tr");
-  document.getElementById("noPending").style.display = "none";
+  console.log('ID:', id);      // Verificar id
+  console.log('Subject:', subject); 
+  Swal.fire({
+    title: "Warning!",
+    text: "Are you sure you want to remove this teacher?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
 
-  newRow.innerHTML = `
-    <td class="teacher-name-table">
-      <p class="table-text">${teacherName}</p>
-    </td>
-    
-    <td class="pfp-table">
-      <img alt="Avatar" class="table-avatar" src="${profilePicUrl}">
-    </td>
+  }).then((willDelete) => {
+    if (willDelete.isConfirmed) {
+      
+      const data = {}
+      data.id = id;
+      data.subject = subject;
 
-    <td class="subject-table">
-      <p class="table-text">${subject}</p>
-    </td>
-    
-    <td class="grade-table">
-      <span class="alert alert-secondary grade-table-text">${grade}</span>
-    </td>
-    
-    <td class="options-table">
-      <button type="button" class="btn btn-warning btn-sm" onclick="confirmWarningRow(this)">
-        <i class="fas fa-warning"></i>
-        Send warning
-      </button>
-
-      <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeleteRow(this)">
-        <i class="fas fa-user-times"></i>
-        Remove
-      </button>
-    </td>
-  `;
-
-  tableBody.appendChild(newRow);
-
-  var buttons = document.getElementsByClassName("btn-sm");
-
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
-      document.getElementById("inputModal").style.display = "flex";
-    });
-  }
-}
-
-function confirmDeleteRow(button) {
-  updateText('remove this teacher?');
-  document.getElementById("inputModal").style.display = "flex";
-  rowToDelete = button.closest('tr'); 
-  actionType = 'remove';
-}
-
-function confirmWarningRow(button) {
-  updateText('send a warning?');
-  document.getElementById("inputModal").style.display = "flex";
-  rowToDelete = button.closest('tr');
-  actionType = 'warning';
-}
-
-document.getElementById("confirmBtn").addEventListener("click", function() {
-
-  const existingToast = document.getElementById('notificationToast');
-
-  if (existingToast) {
-    existingToast.remove();
-  }
-
-  const notification = document.createElement("div");
-
-  if (rowToDelete) {
-    if (actionType === 'remove') {
-
-      notification.innerHTML = `
-        <div class="toast notification-pop-up-danger" id="notificationToast" data-delay="3000">
-          <div class="toast-body">
-            Teacher removed
-          </div>
-        </div>
-      `
-    } 
-    else if (actionType === 'warning') {
-
-      notification.innerHTML = `
-        <div class="toast notification-pop-up-warning" id="notificationToast" data-delay="3000">
-          <div class="toast-body">
-            Warning sent
-          </div>
-        </div>
-      `
+      fetch('/deleteTeacher', {
+        method: 'delete',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json()).then(data => {
+        if(data.status === 'success'){
+          Swal.fire({
+            title: 'Success',
+            text: 'Teacher removed successfully',
+            icon: 'success'
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
     }
+  });
+}
 
-    rowToDelete.remove(); 
-    rowToDelete = null;  
-
-    document.body.appendChild(notification);
-
-    const toastElement = new bootstrap.Toast(document.getElementById('notificationToast')); 
-    toastElement.show();
-
-    document.getElementById('notificationToast').addEventListener('hidden.bs.toast', function () {
-      this.remove();
-    });
-
-    const tableBody = document.getElementById("teacherTableBody");
-    const remainingRows = tableBody.childElementCount; 
-
-    if (remainingRows === 1) {
-      document.getElementById("noPending").style.display = "table-cell";
-    } 
-
-    document.getElementById("inputModal").style.display = "none";
-  }
-});
-
-document.getElementById("addRowBtn").addEventListener("click", function() {
-  let grade = generateRandomNumber();
-  addRow('Charles Francis Xavier', 'Advanced telepathy', grade, '../../../img/PfpPlaceholder.png');
-});
-
-function generateRandomNumber() {
-return (Math.random() * 3.4).toFixed(1);
+function confirmWarningRow(id) {
+  Swal.fire({
+    title: "Warning!",
+    text: "This teacher will receive a warning, are you sure?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willSend) => {
+    console.log(willSend);
+    
+    if(willSend.isConfirmed){
+     fetch('/sendWarning',{
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id})
+     }).then(res => res.json()).then(data => {
+       console.log(data);
+       if(data.status === 'success'){
+         Swal.fire({
+           title: 'Success',
+           text: 'Warning sent successfully',
+           icon: 'success'
+         }).then(() => {
+           location.reload();
+         });
+       }
+     });
+    }
+    
+  });
 }
