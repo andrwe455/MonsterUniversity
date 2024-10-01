@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeacherSchedule</title>
+  <title>Grades</title>
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -116,7 +116,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link active">
+                  <a href="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View schedules</p>
                   </a>
@@ -156,20 +156,28 @@
                   </a>
                 </li>
               </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Attendance</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Qualify
+                  Grades
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Qualify students</p>
+                    <p>Grades students</p>
                   </a>
                 </li>
               </ul>
@@ -185,7 +193,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Teacher Dashboard</h1>
+              <h1 class="m-0">Grades students</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -197,6 +205,84 @@
         </div>
       </div>
 
+      <div class="card">
+          <section class="content-header">
+            <div class="container-fluid">
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1>Grades</h1>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Filters</h3>
+                    </div>
+                    <div class="card-body">
+                      <form id="filterForm">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="materia">Subjects:</label>
+                            <select id="materia" class="form-control">
+                              <option value="">Select subjec</option>
+
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="ano">Year:</label>
+                            <select id="ano" class="form-control">
+                              <option value="">Select year</option>
+
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="periodo">Period:</label>
+                            <select id="periodo" class="form-control">
+                              <option value="">Select period</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                            </select>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Filter</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Grades Results</h3>
+                    </div>
+                    <div class="card-body">
+                      <table id="calificacionesTable" class="table table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <th>Student</th>
+                            <th>Grade</th>
+                            <th>subjec</th>
+                            <th>Year</th>
+                            <th>Period</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
 
 
       <footer class="main-footer">
