@@ -93,6 +93,11 @@ function createAcademicProgram (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','academicPrograms','adminDashboardCreateAcademicProgram.html'));
 }
 
+function showAcademicProgram (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','academicPrograms','adminDashboardShowAcademicPrograms.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -109,5 +114,6 @@ module.exports = {
     teachersEvaluationsReview,
     managerProfile,
     createGroup,
-    createAcademicProgram
+    createAcademicProgram,
+    showAcademicProgram
 }

@@ -14,6 +14,7 @@ router.get('/home/admin/createTeacher', viwes.createTeacher);
 router.get('/home/admin/crtGroup', viwes.createGroup);
 //router.get('/home/admin/showGroup', viwes.showGroup);
 router.get('/home/admin/crtAcademicProgram', viwes.createAcademicProgram);
+router.get('/home/admin/showAcademicProgram', viwes.showAcademicProgram);
 
 
 router.get('/home/student/AcedmicHistory', viwes.createStudentAcademicHistory);
