@@ -88,6 +88,11 @@ function createGroup (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardCreateGroup.html'));
 }
 
+function createAcademicProgram (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','academicPrograms','adminDashboardCreateAcademicProgram.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -103,5 +108,6 @@ module.exports = {
     checkEnrollments,
     teachersEvaluationsReview,
     managerProfile,
-    createGroup
+    createGroup,
+    createAcademicProgram
 }

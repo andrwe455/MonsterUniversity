@@ -17,12 +17,16 @@ const subjectSchema = new mongose.Schema({
         type: [String],
         required: true
     },
-    academicProgram: {
-        type: String,
+    academicPrograms: {
+        type: [String],
         required: true
     },
     semester: {
         type: Number,
+        required: true
+    },
+    id: {
+        type: String,
         required: true
     }
 });
