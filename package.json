@@ -7,7 +7,8 @@
     "express-session": "^1.18.0",
     "firebase": "^10.13.1",
     "mongoose": "^8.5.3",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "proyectoconstruccionsoftware": "file:"
   },
   "name": "proyectoconstruccionsoftware",
   "version": "1.0.0",
