@@ -156,6 +156,14 @@
                   </a>
                 </li>
               </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Attendance</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
@@ -197,6 +205,100 @@
         </div>
       </div>
 
+
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Attendance</h1>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Filters -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="subjectFilter">Select Subject</label>
+                <select class="form-control" id="subjectFilter">
+                  <option value="">All Subjects</option>
+                  <option value="Math">Math</option>
+                  <option value="Science">Science</option>
+                  <option value="History">History</option>
+                  <!-- Add more subjects as needed -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance Table -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Attendance List</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                  <form id="attendanceForm">
+                    <table class="table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Student Name</th>
+                          <th>Subject</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>John Doe</td>
+                          <td>Math</td>
+                          <td>2024-09-30</td>
+                          <td>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="student1" name="attendance[1]"
+                                value="present">
+                              <label class="form-check-label" for="student1">
+                                Present
+                              </label>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Jane Smith</td>
+                          <td>Science</td>
+                          <td>2024-09-30</td>
+                          <td>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="student2" name="attendance[2]"
+                                value="present">
+                              <label class="form-check-label" for="student2">
+                                Present
+                              </label>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- Add more rows dynamically -->
+                      </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary mt-3">Save Attendance</button>
+                  </form>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       <footer class="main-footer">
