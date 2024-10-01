@@ -2,6 +2,7 @@ const usersSchema = require('../schema/usersSchema');
 const subjectSchema = require('../schema/subjectSchema');
 const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
 const schedulesSchema = require('../schema/schedulesSchema');
+const academicProgramSchema = require('../schema/academicPrograms');
 const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
@@ -85,7 +86,15 @@ async function createSubject(req,res){
 async function getSubjects(req,res,next){
     try {
         const subjects = await subjectSchema.find();
+        res.json(subjects)
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+async function getSubjectsMiddelware(req,res,next){
+    try {
+        const subjects = await subjectSchema.find();
         req.body.subjects = subjects;
         next();
     } catch (error) {
@@ -210,14 +219,24 @@ async function getEnrollments(req,res){
     }
 }
 
-// {
-//     _id: new ObjectId('66fae982c643198582f269bd'),
-//     id: '66e613e136566230c2484fcf',
-//     role: 'student',
-//     Schedule: { Subject: [ [Object] ] },
-//     TotalCredits: 3,
-//     semester: '2025-1'
-//   }
+async function createProgram(req,res){
+    try {
+        const newProgram = new academicProgramSchema(req.body);
+        await newProgram.save();
+        res.redirect('/home/admin/crtAcademicProgram');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getAcademicPrograms(req,res){
+    try {
+        const programs = await academicProgramSchema.find();
+        res.json(programs);
+    } catch (error) {
+        console.log(error);
+    }
+}
 module.exports = {
     login,
     setTeacher,
@@ -232,5 +251,8 @@ module.exports = {
     getInfo,
     sendWarning,
     deleteTeacher,
-    getEnrollments
+    getEnrollments,
+    getSubjectsMiddelware,
+    createProgram,
+    getAcademicPrograms
 };

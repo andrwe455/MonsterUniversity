@@ -7,18 +7,29 @@ const academicProgramSchema = new mongoose.Schema({
     required:true
   },
   academicLevel:{
-    enum :['Technical','Technologist','Professional','Doctorate']
+    type:String,
+    enum :['Technical','Technologist','Professional','Master','Doctorate']
   },
-  subjects:[subjectSchema],
   description:{
     type:String
   },
   modality:{
+    type:String,
     enum:['Presential','Virtual']
   },
   duration:{
-    type:Number
-  }
+    type:String
+  },
+  professionalProfile:{
+    type:String
+  },
+  workField:{
+    type:String
+  },
+  id:{
+    type:String,
+    required:true
+  },
 })
 
 module.exports = mongoose.model('academicProgram',academicProgramSchema)

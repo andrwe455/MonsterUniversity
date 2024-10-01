@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
     <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-
+    <link rel="stylesheet" href="../../css/select2.min.css">
+    <link rel="stylesheet" href="../../css/select2-bootstrap4.min.css">
     <link rel="stylesheet" href="../../css/daterangepicker.css">
     <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
     
@@ -175,7 +176,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/home/admin" class="brand-link">
+    <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -210,7 +211,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/home/admin" class="nav-link">
+            <a href="/home/admin" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -257,7 +258,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/home/admin/showGroup" class="nav-link">
+                    <a href="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>See all Groups</p>
                     </a>
@@ -285,12 +286,6 @@
                     <p>See all Assignments</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Update Assignment</p>
-                    </a>
-                </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -308,18 +303,12 @@
                    <p>Create new Schedule</p>
                    </a>
                 </li>
-                   <li class="nav-item">
-                       <a href="" class="nav-link">
-                       <i class="far fa-circle nav-icon"></i>
-                       <p>See all Schedules</p>
-                       </a>
-                   </li>
-                   <li class="nav-item">
-                       <a href="" class="nav-link">
-                       <i class="far fa-circle nav-icon"></i>
-                       <p>Update Schedule</p>
-                       </a>
-                   </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>See all Schedules</p>
+                    </a>
+                </li>
              </ul>
           </li>
           <li class="nav-item">
@@ -328,6 +317,7 @@
                 <p>
                    Reports 
                 </p>
+                
             </a>
             <ul class="nav-treeview">
                 <li class="nav-item">
@@ -344,7 +334,29 @@
                 </li>
             </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="fa-solid fa-building-columns"></i>
+                <p>
+                  Academic Programs
+                </p>
+                <i class="fas fa-angle-left right"></i>
+            </a>
+            <ul class="nav-treeview">
+                <li class="nav-item">
+                    <a href="/home/admin/crtAcademicProgram" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create new Academic Program</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>See all Academic Programs</p>
+                    </a>
+                </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -414,7 +426,7 @@
                       <div class="row">
                         <div class="form-group col-8" id="preRequirements">
                           <label for="Pre-Requirement">Pre-Requirement</label>
-                          <input type="text" id="Pre-Requirement" class="form-control" name="preRequirement[]">
+                          <input type="text" id="Pre-Requirement" class="form-control" name="preRequirements[]">
                         </div>
                         <div class="row col-4">
                           <div class="col-2 mt-2 mr-4">
@@ -432,10 +444,9 @@
                     </div>
                     <div class="col-6">
                       <div class="form-group">
-                        <label for="academicProgram">
-                          Academic Program
-                        </label>
-                        <input type="text" class="form-control" name="academicProgram" >
+                        <label>Multiple</label>
+                        <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicPrograms">
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -466,12 +477,6 @@
       <b>Version</b> 3.2.0
     </div>
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -486,6 +491,19 @@
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../../js/jquerys/dashboard.js"></script>
+<script src="../../../js/jquerys/select2.full.min.js"></script>
 <script src="../../../js/modules/admin/subjects.js"></script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 </body>
 </html>
