@@ -152,17 +152,114 @@
     
       <section class="content">
           <div class="image-wrapper"></div>
-          <section class="content d-flex justify-content-center">
-              <div class="card card-primary col-md-7">
-                <div class="card-header bg-primary text-white">
+          <section class="content">
+
+              <div class="card card-primary ">
+                <div class="card-header bg-primary ">
                   <h3 class="card-title">Teachers Evaluation</h3>
+                  
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+
                 </div>
                   <div class="card-body">
                       <form>
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3  class="card-title">Teaching Resource</h3>
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </div>
+                          </div>
+
+                          <div class="card-body">
+                            <class="form-group">
+                              <label>Are the teaching resources clear and easy to understand?</label>
+                                <select class="form-control small-select col-4" name="question1">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
                         
-                          <div class="form-group">
-                              <label>Does the teacher explain concepts clearly?</label>
-                              <select class="form-control small-select col-2" name="question1">
+                        
+                            <div class="form-group">
+                                <label>Do the teaching resources help you stay engaged during the lesson?</label>
+                                <select class="form-control small-select col-4" name="question2">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label>Do the teaching resources align well with the lesson objectives?</label>
+                                <select class="form-control small-select col-4" name="question3">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Are the teaching resources accessible and available when needed?</label>
+                                <select class="form-control small-select col-4" name="question4">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label>Do the teaching resources support your understanding of the subject?</label>
+                                <select class="form-control small-select col-4" name="question5">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                       
+                          </div> 
+                        </div>
+                        
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3  class="card-title">class times</h3>
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </div>
+                          </div>
+
+                          
+                          <div class="card-body">
+                            <div class="form-group">
+                              <label>Does the teacher effectively manage class time?</label>
+                              <select class="form-control small-select col-4" name="question1">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -170,10 +267,10 @@
                                   <option value="5">5</option>
                               </select>
                           </div>
-      
+                          
                           <div class="form-group">
-                              <label>Is the teacher available to address questions outside class?</label>
-                              <select class="form-control small-select col-2" name="question2">
+                              <label>Does the teacher allocate enough time for student participation?</label>
+                              <select class="form-control small-select col-4" name="question2">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -181,10 +278,10 @@
                                   <option value="5">5</option>
                               </select>
                           </div>
-      
+                          
                           <div class="form-group">
-                              <label>Does the teacher encourage active student participation?</label>
-                              <select class="form-control small-select col-2" name="question3">
+                              <label>Is the class time used efficiently without unnecessary delays?</label>
+                              <select class="form-control small-select col-4" name="question3">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -192,10 +289,10 @@
                                   <option value="5">5</option>
                               </select>
                           </div>
-      
+                          
                           <div class="form-group">
-                              <label>Does the teacher provide constructive feedback on assignments?</label>
-                              <select class="form-control small-select col-2" name="question4">
+                              <label>Does the teacher ensure that all lesson objectives are covered within the class time?</label>
+                              <select class="form-control small-select col-4" name="question4">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -203,10 +300,10 @@
                                   <option value="5">5</option>
                               </select>
                           </div>
-      
+                          
                           <div class="form-group">
-                              <label>How would you rate the teacher’s ability to manage the classroom?</label>
-                              <select class="form-control small-select col-2" name="question5">
+                              <label>Is there sufficient time allocated for students to ask questions and clarify doubts?</label>
+                              <select class="form-control small-select col-4" name="question5">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -214,10 +311,91 @@
                                   <option value="5">5</option>
                               </select>
                           </div>
-      
-                            <div class="text-center">
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                          </div>                      
+                          
+                        </div>
+
+                        </div>
+                        
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3  class="card-title">use of information and communication technology</h3>
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </div>
+                          </div>
+
+                          
+                          <div class="card-body">
+                            <div class="form-group">
+                              <label>Are the tips provided by the teacher helpful for understanding the subject?</label>
+                              <select class="form-control small-select col-4" name="question1">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label>Does the teacher offer tips that improve study habits?</label>
+                              <select class="form-control small-select col-4" name="question2">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label>Are the tips shared by the teacher practical and easy to apply?</label>
+                              <select class="form-control small-select col-4" name="question3">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label>Do the tips provided help in preparing for exams or assignments?</label>
+                              <select class="form-control small-select col-4" name="question4">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label>Does the teacher offer tips that encourage independent learning?</label>
+                              <select class="form-control small-select col-4" name="question5">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                          
+                          </div>
+                        </div>
+
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>  
+                      
+                  </div>
+
+                                              
                       </form>
                   </div>
               </div>
