@@ -76,7 +76,3 @@ window.addEventListener("click", function (event) {
     document.getElementById("inputModal").style.display = "none";
   }
 });
-
-
-
-
