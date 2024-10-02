@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../css/icheck-bootstrap.min.css">
     <link rel="stylesheet" href="../../../css/adminlte.min.css">
     <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/estilos.css">
     <link rel="stylesheet" href="../../../css/dataTables.bootstrap4.min.css">
   </head>
 
@@ -38,7 +39,7 @@
               <span class="dropdown-item dropdown-header">15 Notifications</span>
               <div class="dropdown-divider"></div>
               <div class="dropdown-divider"></div>
-              <a href="/home/manager/teachersEvaluationsReview" class="dropdown-item">
+              <a href="#" class="dropdown-item">
                 <i class="fas fa-users mr-2"></i>
                 <span class="notification-text" data-tooltip="15 teacher's evaluations pending review"> 15 teacher's evaluations pending review </span>
                 <span class="float-right text-muted text-sm">12 hours</span>
@@ -81,7 +82,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               
               <li class="nav-item">
-                <a href="/dashBoard" class="nav-link">
+                <a href="/home/manager" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Dashboard
@@ -90,7 +91,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/home/manager/teachersEvaluationsReview" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
                     See teacher's Evaluations
@@ -112,6 +113,7 @@
       </aside>
 
       <div class="content-wrapper enrollments-content-wrapper">
+        <div class="image-wrapper"></div>
         <div class="card enrollments-card">
           <div class="card-header enrollments-card-header">
             <h2>Enrollments</h2>
@@ -136,7 +138,7 @@
       </div>
 
       <!--Button to test the add rows function. TO BE REMOVED LATER since the function should work automatically from the backend-->
-      <button class="btn btn-info" id="addRowBtn">Add row</button>
+      
     </div>
 
     <footer class="main-footer enrollments-main-footer">
@@ -156,5 +158,6 @@
     <script src="../../../js/jquerys/jquery.dataTables.min.js"></script>
     <script src="../../../js/jquerys/dataTables.bootstrap4.min.js"></script>
     <script src="../../../js/modules/manager/enrollments.js"></script>
+    <script src="../../../js/jquerys/sweetalert2.min.js"></script>
   </body>
 </html>

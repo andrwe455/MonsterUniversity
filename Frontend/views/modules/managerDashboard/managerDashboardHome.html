@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
     <link rel="stylesheet" href="../../css/adminlte.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/estilos.css">
   </head>
   
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -119,12 +120,13 @@
         </div>
 
         <section class="content">
+          <div class="image-wrapper"></div>
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3>125</h3>
+                    <h3 id="answered">125</h3>
                     <p>TE'S answered</p>
                   </div>
                   <div class="icon">
@@ -136,7 +138,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-warning">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3>15</h3>
+                    <h3 id="pending">15</h3>
                     <p>TE'S pending for review</p>
                   </div>
                   <div class="icon">
@@ -152,7 +154,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-dark">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3>1382</h3>
+                    <h3 id="students">1382</h3>
                     <p>Students enrolled</p>
                   </div>
                   <div class="icon">
@@ -241,7 +243,8 @@
     <script>$.widget.bridge('uibutton', $.ui.button)</script>
     <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
     <script src="../../js/jquerys/adminlte.js"></script>
-    <script src="../../js/jquerys/dashboard.js"></script>
+    
     <script src="../../js/modules/manager/todolist.js"></script>
+    <script src="../../js/modules/manager/main.js"></script>
   </body>
 </html>
