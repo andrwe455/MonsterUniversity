@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
     <link rel="stylesheet" href="../../../css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../../css/toastr.min.css">
 
     <link rel="stylesheet" href="../../../css/daterangepicker.css">
     <link rel="stylesheet" href="../../../css/summernote-bs4.min.css">
@@ -185,7 +186,7 @@
                 </li>
             </ul>
           </li>
-          <li class="nav-item"></li>
+          <li class="nav-item">
             <a href="" class="nav-link">
                 <i class="fa-solid fa-building-columns"></i>
                 <p>
@@ -264,47 +265,61 @@
             </div>
         </div>
       </div>
-    </section>
-    
+    </section> 
   </div>
-  <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <form action="/updateSubject" method="put">
-          <div class="modal-content">
-            <div class="modal-header modal-primary">
-                <h2 class="modal-title">Update Subject</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+  <div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+      <form action="/updateSubject" method="post">
+        <div class="modal-content">
+          <div class="modal-header modal-primary">
+              <h2 class="modal-title">Update Subject</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" id="description" class="form-control" name="description">
+            </div>
+            <div class="form-group">
+              <label for="semester">Semester</label>
+              <input type="text" id="semester" class="form-control" name="semester">
+            </div>
+            <div class="row">
+              <div class="form-group col-8" id="preRequirements">
+                <label for="Pre-Requirement">Pre-Requirement</label>
+                <input type="text" id="Pre-Requirement" class="form-control" name="preRequirements[]">
+              </div>
+              <div class="row col-4">
+                <div class="col-2 mt-2 mr-4">
+                  <button type="button" class="btn btn-outline-primary mt-4"  onclick="addPreRequirement()">
+                    <i class="fas fa-plus"></i>
                   </button>
+                </div>
+                <div class="col-2 mt-2">
+                  <button type="button" class="btn btn-outline-danger mt-4" onclick="removePreRequirement()">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <input type="text" name="id" id="id" hidden>
             </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="name">Name</label>
-                 <input type="text" id="name" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" id="description" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="semester">Semester</label>
-                <input type="text" id="semester" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="preRequirement">Pre Requirement</label>
-                <input type="text" id="preRequirement" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="credits">Credits</label>
-                <input type="number" id="credits" class="form-control">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="updateSubject">Update</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <div class="form-group">
+              <label for="credits">Credits</label>
+              <input type="number" id="credits" class="form-control" name="credits">
             </div>
           </div>
-        </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="updateSubject">Update</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
     <!-- /.content-wrapper -->
@@ -326,9 +341,46 @@
 <script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
 <script src="../../../js/jquerys/jquery.dataTables.min.js"></script>
 <script src="../../../js/jquerys/dataTables.bootstrap4.min.js"></script>
+<script src="../../../js/jquerys/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../../js/modules/admin/showSubjects.js"></script>
+<script>
+  $('#modal-lg').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+
+        var name = button.data('name')
+        var description = button.data('description')
+        var semester = button.data('semester')
+        var preRequirements = button.data('prerequirements')
+        var credits = button.data('credits')
+        var id = button.data('id')
+
+
+
+        modal.find('#name').val(name)
+        modal.find('#description').val(description)
+        modal.find('#semester').val(semester)
+        modal.find('#id').val(id)
+        
+        let i =0
+        preRequirements.forEach(element => {
+          if(i==0){
+            modal.find('#Pre-Requirement').val(element)
+            addPreRequirement()
+            i++
+          }
+          else{
+            modal.find(`#Pre-Requirement${i}`).val (element)
+            addPreRequirement()
+            i++
+          }
+        });
+
+        modal.find('#credits').val(credits)
+    });
+</script>
 </body>
 </html>

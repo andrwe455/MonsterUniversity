@@ -58,15 +58,19 @@ window.onload = function() {
             const editButton = document.createElement('a');
             editButton.classList.add('fas', 'fa-edit', 'mr-2');
             editButton.setAttribute('data-toggle', 'modal');
-            editButton.setAttribute('data-target', '#modal-default');
+            editButton.setAttribute('data-target', '#modal-lg');
+            editButton.setAttribute('data-name',element.name);
+            editButton.setAttribute('data-description',element.description);
+            editButton.setAttribute('data-semester',element.semester);
+            editButton.setAttribute('data-prerequirements',JSON.stringify(element.preRequirements));
+            editButton.setAttribute('data-credits',element.credits);
+            editButton.setAttribute('data-id',element._id)
 
-            editButton.onclick = function() {
-                // Add your edit functionality here
-            };
             td8.appendChild(editButton);
 
             const deleteButton = document.createElement('a');
             deleteButton.classList.add('fas', 'fa-trash');
+            deleteButton.setAttribute('href',`/deleteSubject/${element._id}`)
             
             td8.appendChild(deleteButton);
 
@@ -80,4 +84,32 @@ window.onload = function() {
             })
         });
     });
+}
+
+function addPreRequirement(){
+
+    let childElementCount =document.getElementById('preRequirements').childElementCount
+
+    let newPreRequirement = document.createElement('input')
+    newPreRequirement.setAttribute('type', 'text')
+    newPreRequirement.setAttribute('id',`Pre-requirement${childElementCount-1}`)
+    newPreRequirement.setAttribute('name', 'preRequirements[]')
+    newPreRequirement.setAttribute('class', 'form-control')
+    newPreRequirement.setAttribute('placeholder', 'Pre-requirement')
+    newPreRequirement.setAttribute('required', 'required')
+    newPreRequirement.classList.add('mt-2')
+
+    document.getElementById('preRequirements').appendChild(newPreRequirement)
+}
+
+function removePreRequirement(){
+
+    let preRequirements = document.getElementById('preRequirements')
+    let lastPreRequirement = preRequirements.lastChild
+
+    if(lastPreRequirement != null){
+        if(preRequirements.childElementCount > 2){
+            preRequirements.removeChild(lastPreRequirement)
+        }
+    }
 }

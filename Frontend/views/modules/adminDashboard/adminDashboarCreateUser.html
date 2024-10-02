@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assignments</title>
+  <title>Main</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,24 +17,14 @@
     <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
     <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="../../css/select2.min.css">
-    <link rel="stylesheet" href="../../css/select2-bootstrap4.min.css">
+
     <link rel="stylesheet" href="../../css/daterangepicker.css">
     <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
     
   <!-- Theme style -->
   <link rel="stylesheet" href="../../css/adminlte.min.css">
   <link rel="stylesheet" href="../../css/estilos.css">
-  <link rel="stylesheet" href="../../css/styles.css">
-  <style>
-    .daterangepicker .calendar-table {
-    display: none;
-    }
-
-    .daterangepicker .ranges {
-        display: none;
-    }
-  </style>
+    <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -59,7 +49,6 @@
       </li>
     </ul>
 
- 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -67,29 +56,12 @@
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
     </ul>
   </nav>
-
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/home/admin" class="brand-link">
@@ -127,7 +99,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/home/admin" class="nav-link">
+            <a href="/home/admin" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -181,8 +153,8 @@
                 </li>
             </ul>
           </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Assignments
@@ -191,7 +163,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/home/admin/assign" class="nav-link active">
+                    <a href="/home/admin/assign" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Assign teacher</p>
                     </a>
@@ -220,29 +192,35 @@
                     </a>
                 </li>
             </ul>
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                  <i class="fa-solid fa-building-columns"></i>
-                  <p>
-                    Academic Programs
-                  </p>
-                  <i class="fas fa-angle-left right"></i>
-              </a>
-              <ul class="nav-treeview">
-                  <li class="nav-item">
-                      <a href="/home/admin/crtAcademicProgram" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Create new Academic Program</p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="/home/admin/showAcademicProgram" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>See all Academic Programs</p>
-                      </a>
-                  </li>
-              </ul>
-            </li>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="fa-solid fa-building-columns"></i>
+                <p>
+                  Academic Programs
+                </p>
+                <i class="fas fa-angle-left right"></i>
+            </a>
+            <ul class="nav-treeview">
+                <li class="nav-item">
+                    <a href="/home/admin/crtAcademicProgram" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create new Academic Program</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/home/admin/showAcademicProgram" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>See all Academic Programs</p>
+                    </a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="/home/admin/createUser" class="nav-link">
+              <i class="fas fa-user nav-icon"></i>
+              <p>Create new user</p>
+            </a> 
           </li>
         </ul>
       </nav>
@@ -250,7 +228,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -262,7 +239,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/home/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->
@@ -274,44 +251,49 @@
 
       </div>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <form action="/assignTeacher" method="post">
-              <div class="card card-primary card-outline">
-                <div class="card-header">
-                  <h3 class="card-title">Create new Group</h3>
+        <form action="/setUser" method="post">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="car-title">Create new User</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="form-group col-lg-4">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="name" name="Name">
                 </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="form-group ">
-                        <label for="group">Group</label>
-                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="group" name="group" onchange="setSubject(this.value)">
-                          <option value="0">Select a group</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label for="subject">Subject</label>
-                          <input type="text" name="subject" disabled class="form-control" id="subject" >
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label for="teacher">Teacher</label>
-                        <select class="select2" data-placeholder="Teacher" style="width: 100%;" id="teacher" name="teacher">
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+                <div class="form-group col-lg-4">
+                  <label for="lastname">Lastname</label>
+                  <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="LastName">
                 </div>
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group col-lg-4">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Correo" name="Email">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="age" name="age">
+                </div>
+                <div class="form-group col-lg-4">
+                  <label for="rol">Role</label>
+                  <select name="role" id="rol" class="form-control" onchange="showinputs(this.value)">
+                    <option value="">Select One</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="manager">Manager</option>
+                  </select>
                 </div>
               </div>
-            </form>
-        </div>
+              <div id="aditionalInputs" class="row">
+                
+              </div>
+            </div>
+            
+            <div class="card-footer">
+              <input type="submit" name="Submit" value="Create user" class="btn btn-success">
+            </div>
+          </div>
+        </form>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -334,30 +316,19 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../../js/jquerys/jquery.min.js"></script>
+<script src="../../js/jquerys/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../../../js/jquerys/jquery-ui.min.js"></script>
+<script src="../../js/jquerys/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
 <!-- Bootstrap 4 -->
-<script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
+<script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
 
 <!-- AdminLTE App -->
-<script src="../../../js/jquerys/adminlte.js"></script>
+<script src="../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../js/jquerys/select2.full.min.js"></script>
-
-<script src="../../../js/modules/admin/assignments.js"></script>
-
-
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-  })
-</script>
+<script src="../../js/modules/admin/register.js"></script>
 </body>
 </html>

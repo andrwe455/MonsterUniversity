@@ -12,7 +12,8 @@ const studentSchema = new mongose.Schema({
     },
     Semester:{
         type: Number,
-        required: true
+        required: true,
+        default: 1
     },
     Status:{
         type: String,
@@ -26,7 +27,6 @@ const studentSchema = new mongose.Schema({
             Semester: String,
             Credits: Number
         }],
-        required: true
     },
 });
 

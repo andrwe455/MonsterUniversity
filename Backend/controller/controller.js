@@ -4,7 +4,8 @@ const subjectSchema = require('../schema/subjectSchema');
 const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
 const schedulesSchema = require('../schema/schedulesSchema');
 const academicProgramSchema = require('../schema/academicPrograms');
-const  {auth, signIn,logout} = require('../database/firebase');
+const  {auth, signIn,logout,signup} = require('../database/firebase');
+const crypto = require('crypto')
 
 
 
@@ -31,12 +32,15 @@ async function login(req,res,next) {
 
 }
 
-async function setTeacher(req,res) {
-    
-    const newTeacher = new usersSchema(req.body);
-    
-    await newTeacher.save();
-    res.json(newTeacher);
+async function setUser(req,res) {
+
+    const email = req.body.Email;
+    const password = '123456';
+    signup(auth,email,password).then(async (userCredential) => {
+        const newUser = new usersSchema(req.body);
+        await newUser.save();
+        res.redirect('/home/admin/createUser');
+    })
 }
 
 async function teacherScore(req,res) {
@@ -107,9 +111,10 @@ async function getSubjectsMiddelware(req,res,next){
 
 async function updateSubject(req,res){
     try{
-      const {id} = req.params;
-      const subject = await subjectSchema.findOne({id: id});
+      const {id} = req.body;
+      const subject = await subjectSchema.findById(id)
         
+
       subject.name = req.body.name;
       subject.description = req.body.description;
       subject.semester = req.body.semester;
@@ -205,13 +210,10 @@ async function deleteTeacher(req,res){
 async function getEnrollments(req,res){
     try {
         const students = await usersSchema.find({role: 'student'});
-        
         let enrollments = [];
-        
         students.forEach(async student => {
             const schedules = await schedulesSchema.findOne({id: student._id});
             let totalCredits = 0; 
-            
             if(!schedules) {
                 res.json({message: 'No subjects enrolled'});
             }else{
@@ -322,9 +324,21 @@ async function academicHistory(req,res){
         
     }
 }
+
+async function deleteSubject(req,res){
+
+    const {id} = req.params
+    try{
+        await subjectSchema.findByIdAndDelete(id)
+        res.redirect('/home/admin/showSubject?success')
+    }catch{
+        console.log(error);
+    }
+}
+
 module.exports = {
     login,
-    setTeacher,
+    setUser,
     teacherScore,
     Logout,
     createSubject,
@@ -345,5 +359,6 @@ module.exports = {
     getGroupsMiddleWare,
     assignTeacher,
     getAcademicProgramsMiddleWare,
-    academicHistory
+    academicHistory,
+    deleteSubject
 };
