@@ -11,7 +11,6 @@ function secondFactor (req, res) {
 
 function home (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
-    console.log(req.params.role);
     if(req.params.role === 'admin'){
         res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','adminDashboardHome.html'));  
     }else if( req.params.role === 'teacher'){
@@ -27,11 +26,36 @@ function home (req, res) {
     }
 }
 
+
+function teacherHome (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','teacherDashboardHome.html'));
+}
+function teacherGrades (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','grades','teacherDashboardGrades.html'));
+}
+function teacherSchedule (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','schedule','teacherDashboardSchedule.html'));
+}
+function teacherAttendance (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','attendance','teacherDashboardAttendance.html'));
+}
+function teacherViewAttendance (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','attendance','teacherDashboardViewAttendance.html'));
+}
+function teacherSubject (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','subjects','teacherDashboardSubjects.html'));
+}
+
 function createSubject (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboarCreateSubject.html'));
 }
-
 
 function showSubject (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
@@ -98,10 +122,26 @@ function showAcademicProgram (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','academicPrograms','adminDashboardShowAcademicPrograms.html'));
 }
 
+function showGroup (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardShowGroups.html'));
+}
+
+function assign (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','assignments','adminDashboardAssignTeacher.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
     home,
+    teacherSchedule,
+    teacherAttendance,
+    teacherSubject,
+    teacherHome,
+    teacherViewAttendance,
+    teacherGrades,
     createSubject,
     createStudentAcademicHistory,
     createStudentTeachersEvaluation,
@@ -115,5 +155,7 @@ module.exports = {
     managerProfile,
     createGroup,
     createAcademicProgram,
-    showAcademicProgram
+    showAcademicProgram,
+    showGroup,
+    assign
 }

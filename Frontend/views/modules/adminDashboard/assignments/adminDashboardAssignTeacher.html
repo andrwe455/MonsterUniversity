@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create subjects groups</title>
+  <title>Assignments</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -158,17 +158,17 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item ">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie "></i>
               <p>
                 Groups
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview ">
+            <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/home/admin/crtGroup" class="nav-link  active">
+                    <a href="/home/admin/crtGroup" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Create new Group</p>
                     </a>
@@ -181,8 +181,8 @@
                 </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Assignments
@@ -191,7 +191,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/home/admin/assign" class="nav-link">
+                    <a href="/home/admin/assign" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Assign teacher</p>
                     </a>
@@ -220,29 +220,52 @@
                     </a>
                 </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-                <i class="fa-solid fa-building-columns"></i>
-                <p>
-                  Academic Programs
-                </p>
-                <i class="fas fa-angle-left right"></i>
-            </a>
-            <ul class="nav-treeview">
-                <li class="nav-item">
-                    <a href="/home/admin/crtAcademicProgram" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Create new Academic Program</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/home/admin/showAcademicProgram" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>See all Academic Programs</p>
-                    </a>
-                </li>
-            </ul>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <p>
+                    Academic Programs
+                  </p>
+                  <i class="fas fa-angle-left right"></i>
+              </a>
+              <ul class="nav-treeview">
+                  <li class="nav-item">
+                      <a href="/home/admin/crtAcademicProgram" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create new Academic Program</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/home/admin/showAcademicProgram" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>See all Academic Programs</p>
+                      </a>
+                  </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <p>
+                    Academic Programs
+                  </p>
+                  <i class="fas fa-angle-left right"></i>
+              </a>
+              <ul class="nav-treeview">
+                  <li class="nav-item">
+                      <a href="/home/admin/crtAcademicProgram" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create new Academic Program</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/home/admin/showAcademicProgram" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>See all Academic Programs</p>
+                      </a>
+                  </li>
+              </ul>
+            </li>
           </li>
         </ul>
       </nav>
@@ -276,69 +299,32 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <form action="/crtGroup" method="post">
+            <form action="/assignTeacher" method="post">
               <div class="card card-primary card-outline">
                 <div class="card-header">
                   <h3 class="card-title">Create new Group</h3>
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                       <div class="form-group ">
-                        <label for="inputName">ID  group</label>
-                        <input type="text" id="inputName" class="form-control" name="group">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="semester">Semester</label>
-                        <input type="text" id="semester" class="form-control" name="semester">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label>Days</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Select the days" style="width: 100%;" id="days" name="schedule[day]">
-                          <option value="monday">Monday</option>
-                          <option value="tuesday">Tuesday</option>
-                          <option value="wednesday">Wednesday</option>
-                          <option value="thursday">Thursday</option>
-                          <option value="friday">Friday</option>
-                          <option value="saturday">Saturday</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label>Time</label>
-                        <div class="input-group date" id="time" data-target-input="nearest">
-                          <input type="text" class="form-control datetimepicker-input" data-target="#time" name="schedule[time]" id="timeRange"/>
-                          <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label>Subject</label>
-                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="Subject" name="subject">
+                        <label for="group">Group</label>
+                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="group" name="group" onchange="setSubject(this.value)">
+                          <option value="0">Select a group</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="form-group">
-                        <label>Academic Program</label>
-                        <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicProgram">
-                        </select>
+                        <label for="subject">Subject</label>
+                          <input type="text" name="subject" disabled class="form-control" id="subject" >
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="form-group">
-                        <label for="clasroom">Classroom</label>
-                        <input type="text" id="clasroom" class="form-control" name="classroom">
+                        <label for="teacher">Teacher</label>
+                        <select class="select2" data-placeholder="Teacher" style="width: 100%;" id="teacher" name="teacher">
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -380,12 +366,9 @@
 <!-- AdminLTE App -->
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../js/modules/admin/subjects.js"></script>
 <script src="../../../js/jquerys/select2.full.min.js"></script>
-<script src="../../../js/jquerys/moment.min.js"></script>
-<script src="../../../js/jquerys/daterangepicker.js"></script>
 
-<script src="../../../js/modules/admin/groups.js"></script>
+<script src="../../../js/modules/admin/assignments.js"></script>
 
 
 <script>
@@ -398,22 +381,6 @@
       theme: 'bootstrap4'
     })
   })
-
-  $(function() {
-    $('#timeRange').daterangepicker({
-        timePicker: true,
-        timePicker24Hour: true,  
-        timePickerIncrement: 30, 
-        locale: {
-            format: 'HH:mm'     
-        },
-        showDropdowns: false,    
-        autoUpdateInput: false,  
-    }, function(start, end, label) {
-        // Formatea el rango de horas al seleccionar
-        $('#timeRange').val(start.format('HH:mm') + ' - ' + end.format('HH:mm'));
-    });
-  });
 </script>
 </body>
 </html>

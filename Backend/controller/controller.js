@@ -1,10 +1,12 @@
 const usersSchema = require('../schema/usersSchema');
+const studentsSchema = require('../schema/studentsSchema');
 const subjectSchema = require('../schema/subjectSchema');
 const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
 const schedulesSchema = require('../schema/schedulesSchema');
 const academicProgramSchema = require('../schema/academicPrograms');
 const  {auth, signIn,logout} = require('../database/firebase');
-const views = require('./views');
+
+
 
 
 async function login(req,res,next) {
@@ -14,7 +16,7 @@ async function login(req,res,next) {
     try {
         signIn(auth,email,password).then((user) => {
             usersSchema.findOne({Email: email}).then((user) => {
-                
+                req.session.user = user;
                 res.redirect('/home/'+user.role);             
             }).catch((error) => {
                 res.json(error);
@@ -65,6 +67,7 @@ async function teacherScore(req,res) {
 async function Logout(req,res) {
     try {
         logout(auth);
+        req.session.destroy();
         res.redirect('/');
     } catch (error) {
         console.log('error', error);
@@ -136,7 +139,13 @@ async function getInfo(req,res,next){
 async function getTeachers(req,res){
     try {
         const teachers = await usersSchema.find({role: 'teacher'});
-        res.json(teachers);
+        if(req.body){
+            const data = req.body;
+            data.teachers = teachers;
+            res.json(data);
+        }else{
+            res.json(teachers);
+        }
     } catch (error) {
         console.log(error);
     }
@@ -232,9 +241,85 @@ async function createProgram(req,res){
 async function getAcademicPrograms(req,res){
     try {
         const programs = await academicProgramSchema.find();
-        res.json(programs);
+        if(req.body){
+            const data  = req.body;
+            data.programs = programs;
+            res.json(data);
+        }else{
+            res.json(programs);
+        }
+        
     } catch (error) {
         console.log(error);
+    }
+}
+
+async function getGroupsInfo(req,res){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        const programs = await academicProgramSchema.find();
+        res.json({groups,programs});
+    } catch (error) {
+        console.log(error);
+        res.json({error: 'Error getting groups info'});
+    }
+}
+
+async function createGroup(req,res){
+    try {
+        const newGroup = new groupsSubjectsSchema(req.body);
+        await newGroup.save();
+        res.redirect('/home/admin/crtGroup?success=Group created successfully');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/home/admin/crtGroup?error=Error creating group');
+    }
+}
+async function getGroupsMiddleWare(req,res,next){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        req.body.groups = groups;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function assignTeacher(req,res){
+    try {
+        const {group,teacher} = req.body;
+
+        const groupSubjects = await groupsSubjectsSchema.findOneAndUpdate({group: group});
+        groupSubjects.teacher = teacher;
+        await  groupSubjects.save();
+        res.redirect('/home/admin/assign?success=Teacher assigned successfully');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getAcademicProgramsMiddleWare(req,res,next){
+    try {
+        const programs = await academicProgramSchema.find();
+        req.body.programs = programs;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function academicHistory(req,res){
+    try {
+        const academicHistory = req.session.user.AcademicHistory;
+        if(academicHistory){
+            res.json(academicHistory);
+        }else{
+            res.json({message: 'No academic history found'});
+        }
+        
+    } catch (error) {
+        console.log(error);
+        
     }
 }
 module.exports = {
@@ -254,5 +339,11 @@ module.exports = {
     getEnrollments,
     getSubjectsMiddelware,
     createProgram,
-    getAcademicPrograms
+    getAcademicPrograms,
+    createGroup,
+    getGroupsInfo,
+    getGroupsMiddleWare,
+    assignTeacher,
+    getAcademicProgramsMiddleWare,
+    academicHistory
 };

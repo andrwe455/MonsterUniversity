@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create subjects groups</title>
+  <title>AdminLTE 3 | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -12,29 +12,21 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../css/bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../../css/bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
-    <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="../../css/select2.min.css">
-    <link rel="stylesheet" href="../../css/select2-bootstrap4.min.css">
-    <link rel="stylesheet" href="../../css/daterangepicker.css">
-    <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
-    
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../css/adminlte.min.css">
-  <link rel="stylesheet" href="../../css/estilos.css">
-  <link rel="stylesheet" href="../../css/styles.css">
-  <style>
-    .daterangepicker .calendar-table {
-    display: none;
-    }
+    <link rel="stylesheet" href="../../../css/tempusdominus-bootstrap-4.min.css">
 
-    .daterangepicker .ranges {
-        display: none;
-    }
-  </style>
+    <link rel="stylesheet" href="../../../css/daterangepicker.css">
+    <link rel="stylesheet" href="../../../css/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../../../css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../../css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../../css/toastr.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../css/adminlte.min.css">
+  <link rel="stylesheet" href="../../../css/estilos.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -58,38 +50,10 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
- 
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-    </ul>
   </nav>
 
+
+  
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/home/admin" class="brand-link">
@@ -166,15 +130,15 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview ">
+            <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/home/admin/crtGroup" class="nav-link  active">
+                    <a href="/home/admin/crtGroup" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Create new Group</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/home/admin/showGroup" class="nav-link">
+                    <a href="/home/admin/showGroup" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>See all Groups</p>
                     </a>
@@ -276,97 +240,83 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <form action="/crtGroup" method="post">
-              <div class="card card-primary card-outline">
-                <div class="card-header">
-                  <h3 class="card-title">Create new Group</h3>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <div class="form-group ">
-                        <label for="inputName">ID  group</label>
-                        <input type="text" id="inputName" class="form-control" name="group">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="semester">Semester</label>
-                        <input type="text" id="semester" class="form-control" name="semester">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label>Days</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Select the days" style="width: 100%;" id="days" name="schedule[day]">
-                          <option value="monday">Monday</option>
-                          <option value="tuesday">Tuesday</option>
-                          <option value="wednesday">Wednesday</option>
-                          <option value="thursday">Thursday</option>
-                          <option value="friday">Friday</option>
-                          <option value="saturday">Saturday</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label>Time</label>
-                        <div class="input-group date" id="time" data-target-input="nearest">
-                          <input type="text" class="form-control datetimepicker-input" data-target="#time" name="schedule[time]" id="timeRange"/>
-                          <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label>Subject</label>
-                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="Subject" name="subject">
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label>Academic Program</label>
-                        <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicProgram">
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="form-group">
-                        <label for="clasroom">Classroom</label>
-                        <input type="text" id="clasroom" class="form-control" name="classroom">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Subjects</h3>
               </div>
-            </form>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>Group</th>
+                        <th>Subject</th>
+                        <th>Classroom</th>
+                        <th>Schedule (days)</th>
+                        <th>Schedule (time)</th>
+                        <th>Teacher assigned</th>
+                        <th>Semester</th>
+                        <th>Academic program</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="enrollmentsTableBody">
+                    </tbody>
+                </table>
+              </div>
+            </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
+    
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <form action="/updateSubject" method="put">
+          <div class="modal-content">
+            <div class="modal-header modal-primary">
+                <h2 class="modal-title">Update Subject</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">Name</label>
+                 <input type="text" id="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <input type="text" id="semester" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="preRequirement">Pre Requirement</label>
+                <input type="text" id="preRequirement" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="credits">Credits</label>
+                <input type="number" id="credits" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="updateSubject">Update</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </form>
     </div>
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+  </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -376,44 +326,11 @@
 <script src="../../../js/jquerys/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
-
+<script src="../../../js/jquerys/jquery.dataTables.min.js"></script>
+<script src="../../../js/jquerys/dataTables.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../js/modules/admin/subjects.js"></script>
-<script src="../../../js/jquerys/select2.full.min.js"></script>
-<script src="../../../js/jquerys/moment.min.js"></script>
-<script src="../../../js/jquerys/daterangepicker.js"></script>
-
-<script src="../../../js/modules/admin/groups.js"></script>
-
-
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-  })
-
-  $(function() {
-    $('#timeRange').daterangepicker({
-        timePicker: true,
-        timePicker24Hour: true,  
-        timePickerIncrement: 30, 
-        locale: {
-            format: 'HH:mm'     
-        },
-        showDropdowns: false,    
-        autoUpdateInput: false,  
-    }, function(start, end, label) {
-        // Formatea el rango de horas al seleccionar
-        $('#timeRange').val(start.format('HH:mm') + ' - ' + end.format('HH:mm'));
-    });
-  });
-</script>
+<script src="../../../js/modules/admin/showGroups.js"></script>
 </body>
 </html>

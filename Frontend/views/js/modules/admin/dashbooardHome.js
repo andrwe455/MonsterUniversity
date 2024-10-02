@@ -4,5 +4,6 @@ window.onload = function (){
   .then(data => {
     console.log(data);
     document.getElementById('teachers').innerText = data.teachers.length;
+    document.getElementById('Academic').innerText = data.programs.length;
   })
 }

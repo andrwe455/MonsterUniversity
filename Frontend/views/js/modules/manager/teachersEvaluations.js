@@ -7,8 +7,8 @@ let actionType = '';
 
 window.onload = function() {
   fetch('/getTeachers').then(res => res.json()).then(data => {
-    if (data.length > 0) {
-      data.forEach(teacher => {
+    if (data.teachers.length > 0) {
+      data.teachers.forEach(teacher => {
         const tableBody = document.getElementById("teacherTableBody");
         if(teacher.status === 'Activo'){
           if(teacher.test.length > 0){
