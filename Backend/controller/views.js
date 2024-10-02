@@ -106,6 +106,11 @@ function assign (req, res) {
     res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','assignments','adminDashboardAssignTeacher.html'));
 }
 
+function createUser(req,res){
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','adminDashboarCreateUser.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -125,5 +130,6 @@ module.exports = {
     createAcademicProgram,
     showAcademicProgram,
     showGroup,
-    assign
+    assign,
+    createUser
 }
