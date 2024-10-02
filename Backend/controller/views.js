@@ -27,8 +27,40 @@ function home (req, res) {
     }
 }
 
+function teacherHome (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','teacherDashboardHome.html'));
+}
+function teacherGrades (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','grades','teacherDashboardGrades.html'));
+}
+function teacherSchedule (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','schedule','teacherDashboardSchedule.html'));
+}
+function teacherAttendance (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','attendance','teacherDashboardAttendance.html'));
+}
+function teacherViewAttendance (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','attendance','teacherDashboardViewAttendance.html'));
+}
+function teacherSubject (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','teacherDashboard','subjects','teacherDashboardSubjects.html'));
+}
+
+
 module.exports = {
     login,
     secondFactor,
-    home
+    home,
+    teacherSchedule,
+    teacherAttendance,
+    teacherSubject,
+    teacherHome,
+    teacherViewAttendance,
+    teacherGrades
 }
