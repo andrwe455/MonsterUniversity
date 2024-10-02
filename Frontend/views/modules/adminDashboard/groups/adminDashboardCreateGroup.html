@@ -17,14 +17,24 @@
     <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
     <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-
+    <link rel="stylesheet" href="../../css/select2.min.css">
+    <link rel="stylesheet" href="../../css/select2-bootstrap4.min.css">
     <link rel="stylesheet" href="../../css/daterangepicker.css">
     <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
     
   <!-- Theme style -->
   <link rel="stylesheet" href="../../css/adminlte.min.css">
   <link rel="stylesheet" href="../../css/estilos.css">
-    <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    .daterangepicker .calendar-table {
+    display: none;
+    }
+
+    .daterangepicker .ranges {
+        display: none;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -49,89 +59,8 @@
       </li>
     </ul>
 
-    <!-- Right navbar links -->
+ 
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -158,16 +87,9 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/home/admin" class="brand-link">
@@ -280,48 +202,14 @@
                     <p>See all Assignments</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Update Assignment</p>
-                    </a>
-                </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-                <i class="fa-regular fa-calendar nav-icon"></i>
-                <p>
-                    Schedules
-                </p>
-                <i class="fas fa-angle-left right"></i>
-            </a>
-            <ul class="nav-treeview">
-                <li class="nav-item">
-                   <a href="" class="nav-link">
-                   <i class="far fa-circle nav-icon"></i>
-                   <p>Create new Schedule</p>
-                   </a>
-                </li>
-                   <li class="nav-item">
-                       <a href="" class="nav-link">
-                       <i class="far fa-circle nav-icon"></i>
-                       <p>See all Schedules</p>
-                       </a>
-                   </li>
-                   <li class="nav-item">
-                       <a href="" class="nav-link">
-                       <i class="far fa-circle nav-icon"></i>
-                       <p>Update Schedule</p>
-                       </a>
-                   </li>
-             </ul>
           </li>
           <li class="nav-item">
             <a href="" class="nav-link">
                 <i class="fa-regular fa-file nav-icon"></i>
                 <p>
-                   Reports 
+                   Reports
+                   <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
             <ul class="nav-treeview">
@@ -372,7 +260,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <form action="/crtSubject" method="post">
+            <form action="/crtGroup" method="post">
               <div class="card card-primary card-outline">
                 <div class="card-header">
                   <h3 class="card-title">Create new Group</h3>
@@ -381,38 +269,60 @@
                   <div class="row">
                     <div class="col-3">
                       <div class="form-group ">
-                        <label for="inputName">Name</label>
-                        <input type="text" id="inputName" class="form-control" name="name">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="id">Id Subject</label>
-                        <input type="text" id="idSubject" class="form-control" name="id">
+                        <label for="inputName">ID  group</label>
+                        <input type="text" id="inputName" class="form-control" name="group">
                       </div>
                     </div>
                     <div class="col-3">
                       <div class="form-group">
                         <label for="semester">Semester</label>
-                        <input type="number" id="semester" class="form-control" name="semester">
+                        <input type="text" id="semester" class="form-control" name="semester">
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Days</label>
+                        <select class="select2" multiple="multiple" data-placeholder="Select the days" style="width: 100%;" id="days" name="schedule[day]">
+                          <option value="monday">Monday</option>
+                          <option value="tuesday">Tuesday</option>
+                          <option value="wednesday">Wednesday</option>
+                          <option value="thursday">Thursday</option>
+                          <option value="friday">Friday</option>
+                          <option value="saturday">Saturday</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Time</label>
+                        <div class="input-group date" id="time" data-target-input="nearest">
+                          <input type="text" class="form-control datetimepicker-input" data-target="#time" name="schedule[time]" id="timeRange"/>
+                          <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="academicProgram">
-                          Academic Program
-                        </label>
-                        <input type="text" class="form-control" name="academicProgram" >
+                        <label>Subject</label>
+                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="Subject" name="subject">
+                        </select>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <textarea id="inputDescription" class="form-control" rows="4" name="description"></textarea>
+                        <label>Academic Program</label>
+                        <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicProgram">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="clasroom">Classroom</label>
+                        <input type="text" id="clasroom" class="form-control" name="classroom">
                       </div>
                     </div>
                   </div>
@@ -454,7 +364,40 @@
 <!-- AdminLTE App -->
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../js/jquerys/dashboard.js"></script>
 <script src="../../../js/modules/admin/subjects.js"></script>
+<script src="../../../js/jquerys/select2.full.min.js"></script>
+<script src="../../../js/jquerys/moment.min.js"></script>
+<script src="../../../js/jquerys/daterangepicker.js"></script>
+
+<script src="../../../js/modules/admin/groups.js"></script>
+
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+
+  $(function() {
+    $('#timeRange').daterangepicker({
+        timePicker: true,
+        timePicker24Hour: true,  
+        timePickerIncrement: 30, 
+        locale: {
+            format: 'HH:mm'     
+        },
+        showDropdowns: false,    
+        autoUpdateInput: false,  
+    }, function(start, end, label) {
+        // Formatea el rango de horas al seleccionar
+        $('#timeRange').val(start.format('HH:mm') + ' - ' + end.format('HH:mm'));
+    });
+  });
+</script>
 </body>
 </html>

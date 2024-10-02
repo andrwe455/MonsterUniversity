@@ -232,11 +232,41 @@ async function createProgram(req,res){
 async function getAcademicPrograms(req,res){
     try {
         const programs = await academicProgramSchema.find();
-        res.json(programs);
+        if(req.body){
+            const data  = req.body;
+            data.programs = programs;
+            res.json(data);
+        }else{
+            res.json(programs);
+        }
+        
     } catch (error) {
         console.log(error);
     }
 }
+
+async function getGroupsInfo(req,res){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        const programs = await academicProgramSchema.find();
+        res.json({groups,programs});
+    } catch (error) {
+        console.log(error);
+        res.json({error: 'Error getting groups info'});
+    }
+}
+
+async function createGroup(req,res){
+    try {
+        const newGroup = new groupsSubjectsSchema(req.body);
+        await newGroup.save();
+        res.redirect('/home/admin/crtGroup?success=Group created successfully');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/home/admin/crtGroup?error=Error creating group');
+    }
+}
+
 module.exports = {
     login,
     setTeacher,
@@ -254,5 +284,7 @@ module.exports = {
     getEnrollments,
     getSubjectsMiddelware,
     createProgram,
-    getAcademicPrograms
+    getAcademicPrograms,
+    createGroup,
+    getGroupsInfo
 };

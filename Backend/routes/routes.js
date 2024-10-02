@@ -12,7 +12,7 @@ router.get('/home/admin/createSubject', viwes.createSubject);
 router.get('/home/admin/showSubject', viwes.showSubject);
 router.get('/home/admin/createTeacher', viwes.createTeacher);
 router.get('/home/admin/crtGroup', viwes.createGroup);
-//router.get('/home/admin/showGroup', viwes.showGroup);
+router.get('/home/admin/showGroup', viwes.showGroup);
 router.get('/home/admin/crtAcademicProgram', viwes.createAcademicProgram);
 router.get('/home/admin/showAcademicProgram', viwes.showAcademicProgram);
 
@@ -38,12 +38,15 @@ router.get('/getInfo',controller.getInfo,controller.getSubjectsMiddelware,contro
 router.get('/getStudents', controller.getStudents);
 router.get('/enrollments', controller.getEnrollments);
 router.get('/getAcademicPrograms', controller.getAcademicPrograms);
+router.get('/getGroupsInfo', controller.getSubjectsMiddelware,controller.getAcademicPrograms);
+router.get('/getGroups', controller.getGroups);
 
 router.post('/login', controller.login);
 router.post('/setTeacher', controller.setTeacher);
 router.post('/scoreTeacher/:id', controller.teacherScore);
 router.post('/crtSubject',controller.createSubject)
 router.post('/crtProgram',controller.createProgram)
+router.post('/crtGroup',controller.createGroup)
 
 
 router.put('/updateSubject/:id', controller.updateSubject);

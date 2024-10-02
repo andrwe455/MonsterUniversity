@@ -32,7 +32,6 @@ function createSubject (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboarCreateSubject.html'));
 }
 
-
 function showSubject (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','subjects','adminDashboardShowSubjects.html'));
@@ -98,6 +97,11 @@ function showAcademicProgram (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','academicPrograms','adminDashboardShowAcademicPrograms.html'));
 }
 
+function showGroup (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardShowGroups.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -115,5 +119,6 @@ module.exports = {
     managerProfile,
     createGroup,
     createAcademicProgram,
-    showAcademicProgram
+    showAcademicProgram,
+    showGroup
 }
