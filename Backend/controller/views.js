@@ -102,6 +102,11 @@ function showGroup (req, res) {
     res.sendFile (path.join(proyectPath,'Frontend','views','modules','adminDashboard','groups','adminDashboardShowGroups.html'));
 }
 
+function assign (req, res) {
+    const proyectPath = path.resolve(__dirname, '../..');
+    res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','assignments','adminDashboardAssignTeacher.html'));
+}
+
 module.exports = {
     login,
     secondFactor,
@@ -120,5 +125,6 @@ module.exports = {
     createGroup,
     createAcademicProgram,
     showAcademicProgram,
-    showGroup
+    showGroup,
+    assign
 }
