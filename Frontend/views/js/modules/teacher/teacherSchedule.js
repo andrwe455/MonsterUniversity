@@ -13,7 +13,6 @@ function fetchScheduleData() {
           <td>${schedule.Schedule.Subject.start}</td>
           <td>${schedule.Schedule.Subject.end}</td>
           <td>${schedule.Schedule.Subject.Subject}</td>
-          <td>${schedule.Schedule.Subject.teacher}</td>
         `;
                 scheduleTableBody.appendChild(scheduleRow);
             });
