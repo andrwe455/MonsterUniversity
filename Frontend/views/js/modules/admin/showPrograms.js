@@ -2,7 +2,7 @@
 window.onload = function() {
   const table = document.getElementById('example1').getElementsByTagName('tbody')[0];
   fetch('/getAcademicPrograms').then(res => res.json()).then(data => {
-      data.forEach(element => {
+      data.programs.forEach(element => {
           const tr = document.createElement('tr');
           tr.classList.add('odd');
 

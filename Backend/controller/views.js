@@ -11,7 +11,6 @@ function secondFactor (req, res) {
 
 function home (req, res) {
     const proyectPath = path.resolve(__dirname, '../..');
-    console.log(req.params.role);
     if(req.params.role === 'admin'){
         res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','adminDashboardHome.html'));  
     }else if( req.params.role === 'teacher'){

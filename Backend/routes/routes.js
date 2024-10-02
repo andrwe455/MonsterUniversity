@@ -35,7 +35,7 @@ router.get('/home/manager/createTeacher', viwes.createTeacher);
 router.get('/logout', controller.Logout);
 router.get('/getSubjects', controller.getSubjects);
 router.get('/getTeachers', controller.getTeachers);
-router.get('/getInfo',controller.getInfo,controller.getSubjectsMiddelware,controller.getStudents);
+router.get('/getInfo',controller.getInfo,controller.getSubjectsMiddelware,controller.getAcademicProgramsMiddleWare,controller.getStudents);
 router.get('/getStudents', controller.getStudents);
 router.get('/enrollments', controller.getEnrollments);
 router.get('/getAcademicPrograms', controller.getAcademicPrograms);
