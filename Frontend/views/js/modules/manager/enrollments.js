@@ -54,17 +54,4 @@ window.onload = function () {
 
 
 
-/**
- * Function to generate a random number between a set minimum and maximum number, including them
- * @param {number} min - Minimum value
- * @param {number} max - Maximum value
- * @returns A random number between the 'min' and 'max' values, rounded to 0 decimals and parsed as an integer
- */
-function generateRandomNumber(min, max) {
-  return parseInt((Math.random() * (max - min) + min).toFixed(0));
-}
-
-
-
-
 
