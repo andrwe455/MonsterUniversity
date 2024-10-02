@@ -26,7 +26,7 @@
       <img class="animation__shake" src="../../../img/MUlogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
-    <!-- Navbar -->
+
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -64,16 +64,15 @@
       </ul>
     </nav>
 
-    <!-- Main Sidebar Container -->
+
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
+
       <a href="index3.html" class="brand-link">
         <img src="../../../img/MUlogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
         <span class="brand-text font-weight-light">Monster University</span>
       </a>
 
-      <!-- Sidebar -->
       <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
@@ -116,7 +115,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/schedule" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View schedules</p>
                   </a>
@@ -133,7 +132,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/subjects" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>See all Groups</p>
                   </a>
@@ -150,7 +149,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link active">
+                  <a href="/home/teacher/viewAttendance" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View attendance</p>
                   </a>
@@ -158,7 +157,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/attendance" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Attendance</p>
                   </a>
@@ -169,15 +168,15 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Qualify
+                  Grades
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/grades" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Qualify students</p>
+                    <p>Grades students</p>
                   </a>
                 </li>
               </ul>
@@ -185,7 +184,6 @@
           </ul>
         </nav>
       </div>
-
     </aside>
 
     <div class="content-wrapper">
@@ -194,12 +192,6 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0">Attendance</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/home/teacher">Home</a></li>
-                <li class="breadcrumb-item active">Teacher</li>
-              </ol>
             </div>
           </div>
         </div>
@@ -213,13 +205,13 @@
               <h1>Attendance</h1>
             </div>
           </div>
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
 
-      <!-- Main content -->
+
       <section class="content">
         <div class="container-fluid">
-          <!-- Filters -->
+
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -229,20 +221,20 @@
                   <option value="Math">Math</option>
                   <option value="Science">Science</option>
                   <option value="History">History</option>
-                  <!-- Add more subjects as needed -->
+
                 </select>
               </div>
             </div>
           </div>
 
-          <!-- Attendance Table -->
+
           <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Attendance List</h3>
                 </div>
-                <!-- /.card-header -->
+
                 <div class="card-body table-responsive p-0">
                   <form id="attendanceForm">
                     <table class="table table-hover text-nowrap">
@@ -286,15 +278,15 @@
                             </div>
                           </td>
                         </tr>
-                        <!-- Add more rows dynamically -->
+
                       </tbody>
                     </table>
                     <button type="submit" class="btn btn-primary mt-3">Save Attendance</button>
                   </form>
                 </div>
-                <!-- /.card-body -->
+
               </div>
-              <!-- /.card -->
+
             </div>
           </div>
         </div>

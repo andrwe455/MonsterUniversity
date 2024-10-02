@@ -4,17 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MonsterUniversity</title>
+  <title>Teacher Dashboard</title>
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <script src="https://kit.fontawesome.com/48b7f93703.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="../../css/bootstrap-4.min.css">
   <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
-  <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-  <link rel="stylesheet" href="../../css/daterangepicker.css">
-  <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
   <link rel="stylesheet" href="../../css/adminlte.min.css">
   <link rel="stylesheet" href="../../css/styles.css">
 
@@ -26,7 +20,6 @@
       <img class="animation__shake" src="../../img/MUlogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
-    <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -43,37 +36,28 @@
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header">15 Notifications</span>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
+            <a href="/home/teacher" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i>
+              <span class="notification-text" data-tooltip="15 student's evaluations pending review">15 student's
+                evaluations pending review</span>
               <span class="float-right text-muted text-sm">12 hours</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            <a class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
       </ul>
     </nav>
 
-    <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
+
       <a href="index3.html" class="brand-link">
         <img src="../../img/MUlogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
         <span class="brand-text font-weight-light">Monster University</span>
       </a>
 
-      <!-- Sidebar -->
       <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
@@ -116,7 +100,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/schedule" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View schedules</p>
                   </a>
@@ -133,7 +117,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/subjects" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>See all Groups</p>
                   </a>
@@ -150,7 +134,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/viewAttendance" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View attendance</p>
                   </a>
@@ -158,7 +142,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/attendance" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Attendance</p>
                   </a>
@@ -169,15 +153,15 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Qualify
+                  Grades
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/home/teacher/grades" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Qualify students</p>
+                    <p>Grades students</p>
                   </a>
                 </li>
               </ul>
@@ -195,12 +179,6 @@
             <div class="col-sm-6">
               <h1 class="m-0">Teacher Dashboard</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/home/teacher">Home</a></li>
-                <li class="breadcrumb-item active">Teacher</li>
-              </ol>
-            </div>
           </div>
         </div>
       </div>
@@ -208,213 +186,128 @@
       <section class="content">
         <div class="container-fluid">
           <div class="row">
+
             <div class="col-lg-3 col-6">
               <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>150</h3>
-
-                  <p>Students</p>
+                <div class="inner" <h3 id="students">N/A</h3>
+                  <p>students</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person"></i>
+                  <i class="ion ion-android-contacts"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/home/teacher" class="small-box-footer">
+                  More info
+                  <i class="fas fa-arrow-circle-right"></i>
+                </a>
               </div>
             </div>
 
             <div class="col-lg-3 col-6">
               <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>10</h3>
-
-                  <p>Bounce Rate</p>
+                <div class="inner" <h3 id="Schelude">N/A</h3>
+                  <p>Schelude</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-calendar"></i>
+                  <i class="ion ion-android-calendar"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/home/teacher" class="small-box-footer">
+                  More info
+                  <i class="fas fa-arrow-circle-right"></i>
+                </a>
               </div>
             </div>
 
             <div class="col-lg-3 col-6">
               <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-
-                  <p>User Registrations</p>
+                <div class="inner" <h3 id="Subjects">N/A</h3>
+                  <p>Subjects</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-chatbox"></i>
+                  <i class="ion ion-android-person"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/home/teacher" class="small-box-footer">
+                  More info
+                  <i class="fas fa-arrow-circle-right"></i>
+                </a>
               </div>
             </div>
 
-            <div class="col-lg-3 col-6">
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
+            <div class="row">
+              <section class="col-lg-7 connectedSortable">
 
-                  <p>Unique Visitors</p>
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      To Do List
+                    </h3>
+                  </div>
+
+                  <div class="card-body">
+                    <ul class="todo-list" data-widget="todo-list" id="listUL">
+                      <h1 id="toDoPlaceholder" class="to-do-placeholder">Nothing set to do yet...</h1>
+                    </ul>
+                  </div>
+
+                  <div class="card-footer clearfix">
+                    <button type="button" class="btn btn-primary float-right" id="showInputBtn">
+                      <i class="fas fa-plus"></i>
+                      Add item
+                    </button>
+                  </div>
                 </div>
-                <div class="icon">
-                  <i class="ion ion-checkmark"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
+              </section>
             </div>
           </div>
+      </section>
+    </div>
 
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="ion ion-clipboard mr-1"></i>
-                To Do List
-              </h3>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021
+        <a href="https://adminlte.io">AdminLTE.io</a>.
+      </strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+  </div>
 
-              <div class="card-tools">
-                <ul class="pagination pagination-sm">
-                  <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                  <li class="page-item"><a href="#" class="page-link">1</a></li>
-                  <li class="page-item"><a href="#" class="page-link">2</a></li>
-                  <li class="page-item"><a href="#" class="page-link">3</a></li>
-                  <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <ul class="todo-list" data-widget="todo-list">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <!-- checkbox -->
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                    <label for="todoCheck1"></label>
-                  </div>
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
-                    <label for="todoCheck2"></label>
-                  </div>
-                  <span class="text">Make the theme responsive</span>
-                  <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                    <label for="todoCheck3"></label>
-                  </div>
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                    <label for="todoCheck4"></label>
-                  </div>
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                    <label for="todoCheck5"></label>
-                  </div>
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fas fa-ellipsis-v"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                    <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                    <label for="todoCheck6"></label>
-                  </div>
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer clearfix">
-              <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
-            </div>
-          </div>
+  <div id="inputModal" class="input-modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close-btn">
+        <i class="fas fa-close close-icon"></i>
+      </span>
+      <h5>Add Item</h5>
+      <input type="text" class="form-control" placeholder="Enter item" id="inputField" maxlength="1000">
+      <div class="mt-3">
+        <button id="confirmBtn" class="btn btn-success">
+          <i class="fas fa-check"></i>
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
 
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021
+      <a href="https://adminlte.io">AdminLTE.io</a>.
+    </strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer>
 
-          <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-              <b>Version</b> 3.2.0
-            </div>
-          </footer>
-
-
-          <aside class="control-sidebar control-sidebar-dark">
-          </aside>
-        </div>
-        <script src="../../js/jquerys/jquery.min.js"></script>
-        <script src="../../js/jquerys/jquery-ui.min.js"></script>
-        <script>
-          $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
-        <script src="../../js/jquerys/adminlte.js"></script>
-        <script src="../../js/jquerys/dashboard.js"></script>
+  <script src="https://kit.fontawesome.com/48b7f93703.js" crossorigin="anonymous"></script>
+  <script src="../../js/jquerys/jquery.min.js"></script>
+  <script src="../../js/jquerys/jquery-ui.min.js"></script>
+  <script>$.widget.bridge('uibutton', $.ui.button)</script>
+  <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
+  <script src="../../js/jquerys/adminlte.js"></script>
+  <script src="../../js/jquerys/dashboard.js"></script>
+  <script src="../../js/modules/teacher/teacherHome.js"></script>
+  <script src="../../js/modules/teacher/toDoList.js"></script>
 </body>
 
 </html>
