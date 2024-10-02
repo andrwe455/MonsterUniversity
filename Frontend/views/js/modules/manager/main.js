@@ -5,7 +5,6 @@ window.onload = function() {
     if(data.teachers.length > 0){
       let teachers = data.teachers;
 
-      
       teachers.forEach(teacher => {
         evaluations += teacher.test.length;
         teacher.test.forEach(semester => {
@@ -16,15 +15,17 @@ window.onload = function() {
       });
     }
     const pendingEvaluations = evaluations - answeredEvaluations;
-    const pending = document.getElementById('pending');
-    pending.innerHTML = pendingEvaluations;
+    const pendingElements = document.querySelectorAll('.pending'); 
+
+    pendingElements.forEach((pendingElement) => {
+      pendingElement.innerHTML = pendingEvaluations; 
+    });
 
     const answered = document.getElementById('answered');
-    answered.innerHTML = answeredEvaluations;
+    answered.innerHTML = evaluations;
 
     const students = document.getElementById('students');
     students.innerHTML = data.students.length;
 
   });
-  
 }

@@ -15,7 +15,7 @@ function home (req, res) {
     if(req.params.role === 'admin'){
         res.sendFile(path.join(proyectPath,'Frontend','views','modules','adminDashboard','adminDashboardHome.html'));  
     }else if( req.params.role === 'teacher'){
-        res.sendFile(path.join(proyectPath,'Frontend','views','modules','teachersDashboard','teacher.html'));
+        res.sendFile(path.join(proyectPath,'Frontend','views','modules','teacherDashboard','teacherDashboardHome.html'));
     }else if( req.params.role=== 'student'){
         res.sendFile(path.join(proyectPath,'Frontend','views','modules','dashboard_student','Home.html'));
     }
