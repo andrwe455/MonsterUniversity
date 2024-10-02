@@ -2,7 +2,7 @@ const mongose = require('mongoose');
 
 const groupsSubjectsSchema = new mongose.Schema({
   schedule: {
-    type: String,
+    type: {}, 
     required: true
   },
   classroom: {
@@ -11,7 +11,8 @@ const groupsSubjectsSchema = new mongose.Schema({
   },
   teacher: {
     type: String,
-    required: true
+    required: true,
+    default: 'Not assigned'
   },
   subject: {
     type: String,
@@ -22,6 +23,10 @@ const groupsSubjectsSchema = new mongose.Schema({
     required: true
   },
   semester: {
+    type: String,
+    required: true
+  },
+  academicProgram: {
     type: String,
     required: true
   },
