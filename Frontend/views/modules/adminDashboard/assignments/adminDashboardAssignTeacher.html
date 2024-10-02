@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Assignments</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -25,7 +25,16 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../css/adminlte.min.css">
   <link rel="stylesheet" href="../../css/estilos.css">
-    <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    .daterangepicker .calendar-table {
+    display: none;
+    }
+
+    .daterangepicker .ranges {
+        display: none;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -50,89 +59,8 @@
       </li>
     </ul>
 
-    <!-- Right navbar links -->
+ 
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -159,21 +87,9 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
 
-  
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/home/admin" class="brand-link">
@@ -313,23 +229,23 @@
     <!-- /.sidebar -->
   </aside>
 
-
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
+    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
-          </div>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/home/admin">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
-          </div>
-        </div>
-      </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->  
     </div>
     <section class="content">
       <div class="image-wrapper">
@@ -338,72 +254,32 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <form action="/crtSubject" method="post">
+            <form action="/assignTeacher" method="post">
               <div class="card card-primary card-outline">
                 <div class="card-header">
-                  <h3 class="card-title">Create new Subject</h3>
+                  <h3 class="card-title">Create new Group</h3>
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                       <div class="form-group ">
-                        <label for="inputName">Name</label>
-                        <input type="text" id="inputName" class="form-control" name="name">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="id">Id Subject</label>
-                        <input type="text" id="idSubject" class="form-control" name="id">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="credits">Credits</label>
-                        <input type="number" id="credits" class="form-control" name="credits">
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-group">
-                        <label for="semester">Semester</label>
-                        <input type="number" id="semester" class="form-control" name="semester">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="row">
-                        <div class="form-group col-8" id="preRequirements">
-                          <label for="Pre-Requirement">Pre-Requirement</label>
-                          <input type="text" id="Pre-Requirement" class="form-control" name="preRequirements[]">
-                        </div>
-                        <div class="row col-4">
-                          <div class="col-2 mt-2 mr-4">
-                            <button type="button" class="btn btn-outline-primary mt-4"  onclick="addPreRequirement()">
-                              <i class="fas fa-plus"></i>
-                            </button>
-                          </div>
-                          <div class="col-2 mt-2">
-                            <button type="button" class="btn btn-outline-danger mt-4" onclick="removePreRequirement()">
-                              <i class="fas fa-minus"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label>Academic Programs</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicPrograms">
+                        <label for="group">Group</label>
+                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="group" name="group" onchange="setSubject(this.value)">
+                          <option value="0">Select a group</option>
                         </select>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <textarea id="inputDescription" class="form-control" rows="4" name="description"></textarea>
+                        <label for="subject">Subject</label>
+                          <input type="text" name="subject" disabled class="form-control" id="subject" >
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="teacher">Teacher</label>
+                        <select class="select2" data-placeholder="Teacher" style="width: 100%;" id="teacher" name="teacher">
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -426,6 +302,12 @@
       <b>Version</b> 3.2.0
     </div>
   </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -439,9 +321,10 @@
 <!-- AdminLTE App -->
 <script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../js/jquerys/dashboard.js"></script>
 <script src="../../../js/jquerys/select2.full.min.js"></script>
-<script src="../../../js/modules/admin/subjects.js"></script>
+
+<script src="../../../js/modules/admin/assignments.js"></script>
+
 
 <script>
   $(function () {

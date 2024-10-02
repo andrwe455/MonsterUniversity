@@ -136,7 +136,13 @@ async function getInfo(req,res,next){
 async function getTeachers(req,res){
     try {
         const teachers = await usersSchema.find({role: 'teacher'});
-        res.json(teachers);
+        if(req.body){
+            const data = req.body;
+            data.teachers = teachers;
+            res.json(data);
+        }else{
+            res.json(teachers);
+        }
     } catch (error) {
         console.log(error);
     }
@@ -267,6 +273,30 @@ async function createGroup(req,res){
     }
 }
 
+
+async function getGroupsMiddleWare(req,res,next){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        req.body.groups = groups;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function assignTeacher(req,res){
+    try {
+        const {group,teacher} = req.body;
+
+        const groupSubjects = await groupsSubjectsSchema.findOneAndUpdate({group: group});
+        groupSubjects.teacher = teacher;
+        await  groupSubjects.save();
+        res.redirect('/home/admin/assign?success=Teacher assigned successfully');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     login,
     setTeacher,
@@ -286,5 +316,7 @@ module.exports = {
     createProgram,
     getAcademicPrograms,
     createGroup,
-    getGroupsInfo
+    getGroupsInfo,
+    getGroupsMiddleWare,
+    assignTeacher
 };

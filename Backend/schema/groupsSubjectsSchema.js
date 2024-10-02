@@ -30,6 +30,10 @@ const groupsSubjectsSchema = new mongose.Schema({
     type: String,
     required: true
   },
+  quota: {
+    type: Number,
+    required: true,
+  }
 });
 
 module.exports = mongose.model('groupsSubjects', groupsSubjectsSchema);
