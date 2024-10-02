@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const studentsSchema = require('./studentsSchema');
 const docentsSchema = require('./teachersSchema');
 const adminsSchema = require('./adminsSchema');
+const managerSchema = require('./managerSchema');
 
 
 const usersSchema = new mongoose.Schema({
@@ -20,7 +21,7 @@ const usersSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        enum:['student', 'docent', 'admin'],
+        enum:['student', 'teacher', 'admin'],
         required: true
     },
     createdAt:{
@@ -32,8 +33,10 @@ const usersSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', usersSchema, 'users');
 const Student = User.discriminator('student', studentsSchema);
-const Docent = User.discriminator('docent', docentsSchema);
+const Docent = User.discriminator('teacher', docentsSchema);
 const Admin = User.discriminator('admin', adminsSchema);
+const Manager = User.discriminator('manager', managerSchema);
+
 
 
 module.exports =  User;

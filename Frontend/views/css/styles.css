@@ -1,61 +1,217 @@
 @font-face {
-    font-family: 'SF Collegiate Solid';
-    src: url('../Fonts/SF_Collegiate_Solid.ttf') format('truetype');
+  font-family: 'SF Collegiate Solid';
+  src: url('../Fonts/SF_Collegiate_Solid.ttf') format('truetype');
 }
 
 body {
-    font-family: 'SF Collegiate Solid', sans-serif;
+  font-family: 'SF Collegiate Solid', sans-serif;
 }
 
-.notification-text {
-    display: inline-block;
-    max-width: 60%; /* Set the desired width */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
+.ellipsis-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.notification-text::after {
-    content: attr(data-tooltip); /* Fetch text dynamically from data attribute */
-    position: absolute;
-    background-color: #333; /* Tooltip background color */
-    color: #fff; /* Text color */
-    padding: 5px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap; /* Prevents text from wrapping */
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Tooltip should not interfere with mouse events */
-    transition: opacity 0.5s ease, transform 0.3s ease;
-    
-    /* Positioning */
-    bottom: 100%; /* Position tooltip above the element */
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
+.logo:hover{
+  filter: brightness(120%);
+  cursor: pointer;
 }
 
-/* Create the triangle (tail) pointing down to the element */
-.notification-text::before {
-    content: '';
-    position: absolute;
-    bottom: 93%; /* Position the triangle right below the tooltip */
-    left: 47%;
-    rotate: 180deg;
-    transform: translateX(-50%);
-    border-width: 8px; /* Size of the triangle */
-    border-style: solid;
-    border-color: transparent transparent #333 transparent; /* Triangle with the same color as the tooltip */
-    opacity: 0; /* Hide it initially */
-    transition: opacity 0.2s ease;
+.input-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px); 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.notification-text:hover::after,
-.notification-text:hover::before {
-    opacity: 1; /* Show the tooltip and triangle on hover */
-    transform: translateX(-50%) translateY(-10%); /* Move tooltip and tail into place */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
 }
 
+.close-btn {
+  float: right;
+}
 
+.close-icon{
+  transition: transform .2s;
+  cursor: pointer;
+}
 
+.close-icon:hover{
+  transform: scale(1.5);
+}
 
+.to-do-placeholder{
+  opacity: 50%;
+}
+
+.todo-list>li .text{
+  font-weight: 100;
+  min-width: 80%;
+  max-width: 80%;
+}
+
+.todo-list>li {
+  border-radius: 2px;
+  background-color: #f8f9fa;
+  border-left: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  color: #495057;
+  margin-bottom: 2px;
+  padding: 10px;
+}
+
+.todo-list>li:hover .tools{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.todo-list .handle{
+  white-space: nowrap;
+}
+
+.fixed-table{
+  table-layout: fixed;
+  max-width: 100%;
+}
+
+.table>th{
+  font-weight: 100;
+}
+
+.teacher-name-table-header {
+  width: 15%;
+  max-width: 25%;
+}
+
+.teacher-name-table {
+  width: 15%; 
+  max-width: 25%; 
+}
+
+.teacher-pfp-table-header{
+  width: 12%;
+  max-width: 12%;
+}
+
+.pfp-table{
+  width: 15%;
+  max-width: 15%;
+}
+
+.table-avatar{
+  margin-left: 15%;
+}
+
+.subject-table-header{
+  width: 15%;
+  max-width: 15%;
+}
+
+.grade-table-header{
+  width: 10%;
+  max-width: 10%;
+}
+
+.grade-table-text{
+  font-size: large;
+}
+
+.options-table-header{
+  width: 14%;
+  max-width: 20%;
+}
+
+.table-text{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.notification-pop-up-warning{
+  position: absolute; top: 4rem; right: 2rem;
+  opacity: 1.0;
+  background-color: #ffc107;
+}
+
+.notification-pop-up-danger{
+  position: absolute; top: 4rem; right: 2rem;
+  opacity: 1.0;
+  background-color: #dc3545;
+}
+
+.student-name{
+  display: -webkit-box; /* Fallback for older browsers */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Limit the text to 2 lines */
+  line-clamp: 2;
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis;
+}
+
+.card-manager-profile{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.card-manager-info{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media(max-width: 654px){
+  .alert{
+    padding: 0%;
+    font-size: larger;
+  }
+}
+
+@media(max-width: 539px){
+  .teacher-name-table-header{
+    display: none;
+  }
+
+  .teacher-name-table{
+    display: none;
+  }
+
+  .table td, .table th {
+    padding: 0.25rem;
+  }
+}
+
+@media(max-width: 400px){
+  .enrollments-card{
+    box-shadow: none;
+  }
+  
+  .enrollments-content-wrapper{
+    background-color: transparent;
+  }
+
+  .enrollments-card-header, .enrollments-main-header{
+    border-bottom: none;
+  }
+
+  .enrollments-main-footer{
+    border-top: none;
+  }
+}

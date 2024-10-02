@@ -18,7 +18,16 @@ const studentSchema = new mongose.Schema({
         type: String,
         required: true,
         default: 'Activo'
-    }
+    },
+    AcademicHistory:{
+        type: [{
+            Subject: String,
+            Grade: Number,
+            Semester: String,
+            Credits: Number
+        }],
+        required: true
+    },
 });
 
 module.exports = studentSchema;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Main</title>
+  <title>Create subjects groups</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,14 +17,24 @@
     <link rel="stylesheet" href="../../css/icheck-bootstrap.min.css">
     <!-- calendar -->
     <link rel="stylesheet" href="../../css/tempusdominus-bootstrap-4.min.css">
-
+    <link rel="stylesheet" href="../../css/select2.min.css">
+    <link rel="stylesheet" href="../../css/select2-bootstrap4.min.css">
     <link rel="stylesheet" href="../../css/daterangepicker.css">
     <link rel="stylesheet" href="../../css/summernote-bs4.min.css">
     
   <!-- Theme style -->
   <link rel="stylesheet" href="../../css/adminlte.min.css">
   <link rel="stylesheet" href="../../css/estilos.css">
-    <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    .daterangepicker .calendar-table {
+    display: none;
+    }
+
+    .daterangepicker .ranges {
+        display: none;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -49,6 +59,7 @@
       </li>
     </ul>
 
+ 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -56,12 +67,29 @@
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
     </ul>
   </nav>
+
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/home/admin" class="brand-link">
@@ -99,7 +127,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/home/admin" class="nav-link active">
+            <a href="/home/admin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -130,17 +158,17 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item ">
-            <a href="#" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-chart-pie "></i>
               <p>
                 Groups
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview ">
                 <li class="nav-item">
-                    <a href="/home/admin/crtGroup" class="nav-link">
+                    <a href="/home/admin/crtGroup" class="nav-link  active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Create new Group</p>
                     </a>
@@ -222,6 +250,7 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -233,7 +262,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home/admin">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->
@@ -245,39 +274,81 @@
 
       </div>
       <div class="container-fluid">
-
         <div class="row">
-          <div class="col-lg-3 col-6">
-
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3 id="Academic">150</h3>
-                <p>Academic Programs</p>
+          <div class="col-12">
+            <form action="/crtGroup" method="post">
+              <div class="card card-primary card-outline">
+                <div class="card-header">
+                  <h3 class="card-title">Create new Group</h3>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="form-group ">
+                        <label for="inputName">ID  group</label>
+                        <input type="text" id="inputName" class="form-control" name="group">
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label for="semester">Semester</label>
+                        <input type="text" id="semester" class="form-control" name="semester">
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Days</label>
+                        <select class="select2" multiple="multiple" data-placeholder="Select the days" style="width: 100%;" id="days" name="schedule[day]">
+                          <option value="monday">Monday</option>
+                          <option value="tuesday">Tuesday</option>
+                          <option value="wednesday">Wednesday</option>
+                          <option value="thursday">Thursday</option>
+                          <option value="friday">Friday</option>
+                          <option value="saturday">Saturday</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Time</label>
+                        <div class="input-group date" id="time" data-target-input="nearest">
+                          <input type="text" class="form-control datetimepicker-input" data-target="#time" name="schedule[time]" id="timeRange"/>
+                          <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label>Subject</label>
+                        <select class="select2" data-placeholder="Subject" style="width: 100%;" id="Subject" name="subject">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label>Academic Program</label>
+                        <select class="select2" data-placeholder="Select a State" style="width: 100%;" id="academicPrograms" name="academicProgram">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="clasroom">Classroom</label>
+                        <input type="text" id="clasroom" class="form-control" name="classroom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-university"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3 id="teachers"><sup style="font-size: 20px"></sup></h3>
-                <p>Teachers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+            </form>
         </div>
-        <div class="row">
-          <!-- right col -->
-        </div>
-
-        <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -300,19 +371,49 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../js/jquerys/jquery.min.js"></script>
+<script src="../../../js/jquerys/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../../js/jquerys/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+<script src="../../../js/jquerys/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
+<script src="../../../js/jquerys/bootstrap.bundle.min.js"></script>
 
 <!-- AdminLTE App -->
-<script src="../../js/jquerys/adminlte.js"></script>
+<script src="../../../js/jquerys/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../js/modules/admin/dashbooardHome.js"></script>
+<script src="../../../js/modules/admin/subjects.js"></script>
+<script src="../../../js/jquerys/select2.full.min.js"></script>
+<script src="../../../js/jquerys/moment.min.js"></script>
+<script src="../../../js/jquerys/daterangepicker.js"></script>
+
+<script src="../../../js/modules/admin/groups.js"></script>
+
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+
+  $(function() {
+    $('#timeRange').daterangepicker({
+        timePicker: true,
+        timePicker24Hour: true,  
+        timePickerIncrement: 30, 
+        locale: {
+            format: 'HH:mm'     
+        },
+        showDropdowns: false,    
+        autoUpdateInput: false,  
+    }, function(start, end, label) {
+        // Formatea el rango de horas al seleccionar
+        $('#timeRange').val(start.format('HH:mm') + ' - ' + end.format('HH:mm'));
+    });
+  });
+</script>
 </body>
 </html>
