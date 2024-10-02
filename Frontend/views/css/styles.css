@@ -19,52 +19,6 @@ body {
   cursor: pointer;
 }
 
-.notification-text {
-  display: inline-block;
-  max-width: 60%; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-}
-
-.notification-text::after {
-  content: attr(data-tooltip); 
-  position: absolute;
-  background-color: #333; 
-  color: #fff;
-  padding: 5px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap; 
-  opacity: 0; 
-  pointer-events: none; 
-  transition: opacity 0.5s ease, transform 0.3s ease;
-  bottom: 100%; 
-  left: 50%;
-  transform: translateX(-50%); 
-}
-
-.notification-text::before {
-  content: '';
-  position: absolute;
-  bottom: 93%;
-  left: 47%;
-  rotate: 180deg;
-  transform: translateX(-50%);
-  border-width: 8px; 
-  border-style: solid;
-  border-color: transparent transparent #333 transparent; 
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.notification-text:hover::after,
-.notification-text:hover::before {
-  opacity: 1; 
-  transform: translateX(-50%) translateY(-10%); 
-}
-
 .input-modal {
   display: none;
   position: fixed;

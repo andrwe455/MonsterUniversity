@@ -33,19 +33,18 @@
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
               <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
+              <span class="badge badge-warning navbar-badge pending"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-item dropdown-header">15 Notifications</span>
+              <span class="dropdown-header">Notifications</span> 
               <div class="dropdown-divider"></div>
               <div class="dropdown-divider"></div>
               <a href="/home/manager/teachersEvaluationsReview" class="dropdown-item">
                 <i class="fas fa-users mr-2"></i>
-                <span class="notification-text" data-tooltip="15 teacher's evaluations pending review">15 teacher's evaluations pending review</span>
-                <span class="float-right text-muted text-sm">12 hours</span>
+                <span class="pending"></span> <span> teacher's evaluations pending review</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item dropdown-footer">See All Notifications</a>
+              <span class="dropdown-header">Notifications</span> 
             </div>
           </li>
         </ul>
@@ -126,7 +125,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3 id="answered">125</h3>
+                    <h3 id="answered">N/A</h3>
                     <p>TE'S answered</p>
                   </div>
                   <div class="icon">
@@ -138,7 +137,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-warning">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3 id="pending">15</h3>
+                    <h3 class="pending">N/A</h3>
                     <p>TE'S pending for review</p>
                   </div>
                   <div class="icon">
@@ -154,7 +153,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-dark">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3 id="students">1382</h3>
+                    <h3 id="students">N/A</h3>
                     <p>Students enrolled</p>
                   </div>
                   <div class="icon">
@@ -170,7 +169,7 @@
               <div class="col-lg-3 col-6">
                 <div class="small-box bg-danger">
                   <div class="inner" style="height: 8.5rem;">
-                    <h3>6</h3>
+                    <h3>N/A</h3>
                     <p>Teachers removed</p>
                   </div>
                   <div class="icon">
@@ -243,7 +242,6 @@
     <script>$.widget.bridge('uibutton', $.ui.button)</script>
     <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
     <script src="../../js/jquerys/adminlte.js"></script>
-    
     <script src="../../js/modules/manager/todolist.js"></script>
     <script src="../../js/modules/manager/main.js"></script>
   </body>
