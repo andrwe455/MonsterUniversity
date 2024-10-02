@@ -297,6 +297,16 @@ async function assignTeacher(req,res){
     }
 }
 
+async function getAcademicProgramsMiddleWare(req,res,next){
+    try {
+        const programs = await academicProgramSchema.find();
+        req.body.programs = programs;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     login,
     setTeacher,
@@ -318,5 +328,6 @@ module.exports = {
     createGroup,
     getGroupsInfo,
     getGroupsMiddleWare,
-    assignTeacher
+    assignTeacher,
+    getAcademicProgramsMiddleWare
 };
