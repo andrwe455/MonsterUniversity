@@ -1,10 +1,12 @@
 const usersSchema = require('../schema/usersSchema');
+const studentsSchema = require('../schema/studentsSchema');
 const subjectSchema = require('../schema/subjectSchema');
 const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
 const schedulesSchema = require('../schema/schedulesSchema');
 const academicProgramSchema = require('../schema/academicPrograms');
 const  {auth, signIn,logout} = require('../database/firebase');
-const views = require('./views');
+
+
 
 
 async function login(req,res,next) {
@@ -14,7 +16,7 @@ async function login(req,res,next) {
     try {
         signIn(auth,email,password).then((user) => {
             usersSchema.findOne({Email: email}).then((user) => {
-                
+                req.session.user = user;
                 res.redirect('/home/'+user.role);             
             }).catch((error) => {
                 res.json(error);
@@ -65,6 +67,7 @@ async function teacherScore(req,res) {
 async function Logout(req,res) {
     try {
         logout(auth);
+        req.session.destroy();
         res.redirect('/');
     } catch (error) {
         console.log('error', error);
@@ -272,8 +275,6 @@ async function createGroup(req,res){
         res.redirect('/home/admin/crtGroup?error=Error creating group');
     }
 }
-
-
 async function getGroupsMiddleWare(req,res,next){
     try {
         const groups = await groupsSubjectsSchema.find();
@@ -307,6 +308,20 @@ async function getAcademicProgramsMiddleWare(req,res,next){
     }
 }
 
+async function academicHistory(req,res){
+    try {
+        const academicHistory = req.session.user.AcademicHistory;
+        if(academicHistory){
+            res.json(academicHistory);
+        }else{
+            res.json({message: 'No academic history found'});
+        }
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 module.exports = {
     login,
     setTeacher,
@@ -329,5 +344,6 @@ module.exports = {
     getGroupsInfo,
     getGroupsMiddleWare,
     assignTeacher,
-    getAcademicProgramsMiddleWare
+    getAcademicProgramsMiddleWare,
+    academicHistory
 };

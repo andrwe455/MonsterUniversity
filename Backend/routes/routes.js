@@ -23,6 +23,7 @@ router.get('/home/student/TeachersEvaluation', viwes.createStudentTeachersEvalua
 router.get('/home/student/AttendancePerSubject', viwes.createStudentAttendancePerSubject);
 router.get('/home/student/Inscripcions', viwes.createStudentInscripcions);
 router.get('/home/student/Cancel', viwes.createCancelsubjects);
+router.get('/academicHistory', controller.academicHistory);
 
 router.get('/logout', controller.Logout);
 
