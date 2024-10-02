@@ -1,5 +1,8 @@
 const usersSchema = require('../schema/usersSchema');
 const subjectSchema = require('../schema/subjectSchema');
+const groupsSubjectsSchema = require('../schema/groupsSubjectsSchema');
+const schedulesSchema = require('../schema/schedulesSchema');
+const academicProgramSchema = require('../schema/academicPrograms');
 const  {auth, signIn,logout} = require('../database/firebase');
 const views = require('./views');
 
@@ -80,10 +83,20 @@ async function createSubject(req,res){
     }
 }
 
-async function getSubjects(req,res){
+async function getSubjects(req,res,next){
     try {
         const subjects = await subjectSchema.find();
-        res.json(subjects);
+        res.json(subjects)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getSubjectsMiddelware(req,res,next){
+    try {
+        const subjects = await subjectSchema.find();
+        req.body.subjects = subjects;
+        next();
     } catch (error) {
         console.log(error);
     }
@@ -110,6 +123,16 @@ async function updateSubject(req,res){
 
 }
 
+async function getInfo(req,res,next){
+    try {
+        const teachers = await usersSchema.find({role: 'teacher'});
+        req.body.teachers = teachers;
+        next();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 async function getTeachers(req,res){
     try {
         const teachers = await usersSchema.find({role: 'teacher'});
@@ -119,6 +142,101 @@ async function getTeachers(req,res){
     }
 }
 
+async function getStudents(req,res){
+    try {
+        const students = await usersSchema.find({role: 'student'});
+        req.body.students = students;
+        res.json(req.body);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getGroups(req,res){
+    try {
+        const groups = await groupsSubjectsSchema.find();
+        res.json(groups);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function sendWarning(req,res){
+    try {
+        const {id} = req.body;
+        const teacher = await usersSchema.findById(id);
+        teacher.warningTracker += 1;
+        await teacher.save();
+        res.json({status: 'success'});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function deleteTeacher(req,res){
+    try {
+        const {id,subject} = req.body;
+        const teacher = await usersSchema.findById(id);        
+        teacher.test.forEach(element => {
+            element.Subject.forEach(Subject => {
+                
+                if(Subject.Name === subject){
+                    Subject.status = 'inactive';
+                    console.log(Subject);
+                }
+            });
+        });
+        await teacher.save();
+        res.json({status: 'success'});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getEnrollments(req,res){
+    try {
+        const students = await usersSchema.find({role: 'student'});
+        
+        let enrollments = [];
+        
+        students.forEach(async student => {
+            const schedules = await schedulesSchema.findOne({id: student._id});
+            let totalCredits = 0; 
+            
+            if(!schedules) {
+                res.json({message: 'No subjects enrolled'});
+            }else{
+                
+                enrollments.push({
+                    student: student,
+                    schedules: schedules
+                });
+                res.json(enrollments);
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function createProgram(req,res){
+    try {
+        const newProgram = new academicProgramSchema(req.body);
+        await newProgram.save();
+        res.redirect('/home/admin/crtAcademicProgram');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getAcademicPrograms(req,res){
+    try {
+        const programs = await academicProgramSchema.find();
+        res.json(programs);
+    } catch (error) {
+        console.log(error);
+    }
+}
 module.exports = {
     login,
     setTeacher,
@@ -127,5 +245,14 @@ module.exports = {
     createSubject,
     getSubjects,
     updateSubject,
-    getTeachers
+    getTeachers,
+    getStudents,
+    getGroups,
+    getInfo,
+    sendWarning,
+    deleteTeacher,
+    getEnrollments,
+    getSubjectsMiddelware,
+    createProgram,
+    getAcademicPrograms
 };

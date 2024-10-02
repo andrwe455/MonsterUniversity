@@ -22,3 +22,15 @@ function removePreRequirement(){
         }
     }
 }
+
+window.onload = function(){
+    fetch('/getAcademicPrograms').then(res => res.json()).then(data => {
+        let academicPrograms = document.getElementById('academicPrograms')
+        data.forEach(academicProgram => {
+            let option = document.createElement('option')
+            option.value = academicProgram.name
+            option.innerHTML = academicProgram.name
+            academicPrograms.appendChild(option)
+        })
+    }).catch(err => console.log(err))
+}
